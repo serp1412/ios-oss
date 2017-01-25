@@ -1,6 +1,6 @@
 import KsApi
 import Prelude
-import ReactiveCocoa
+import ReactiveSwift
 import Result
 
 public enum EmptyState: String {
@@ -13,13 +13,13 @@ public enum EmptyState: String {
 
 public protocol EmptyStatesViewModelInputs {
   /// Call to configure with the view controller that needs an empty state.
-  func configureWith(emptyState emptyState: EmptyState?)
+  func configureWith(emptyState: EmptyState?)
 
   /// Call when main button is tapped.
   func mainButtonTapped()
 
   /// Call to set the empty state if it is not known at the time of instanciation.
-  func setEmptyState(emptyState: EmptyState)
+  func setEmptyState(_ emptyState: EmptyState)
 
   /// Call when the view controller's viewWillAppear method is called.
   func viewWillAppear()
@@ -79,53 +79,55 @@ public final class EmptyStatesViewModel: EmptyStatesViewModelType, EmptyStatesVi
 
   // swiftlint:disable function_body_length
   public init() {
-    let emptyState = combineLatest(
-      self.emptyStateProperty.signal.ignoreNil(),
-      self.viewWillAppearProperty.signal.take(1)
+    let emptyState = Signal.combineLatest(
+      self.emptyStateProperty.signal.skipNil(),
+      self.viewWillAppearProperty.signal.take(first: 1)
     )
     .map(first)
 
     self.backgroundGradientColorId = emptyState
-      .map { $0 == .activity ? RootCategory.comics.rawValue : nil }
+      .map { emptyState -> Int? in
+        emptyState == .activity ? RootCategory.comics.rawValue : nil
+    }
 
     self.mainButtonBackgroundColor = emptyState
-      .map { $0 == .activity
-        ? UIColor.ksr_forest_500.colorWithAlphaComponent(0.1)
-        : UIColor.ksr_green_500.colorWithAlphaComponent(0.1)
+      .map { emptyState -> UIColor in emptyState == .activity
+        ? UIColor.ksr_forest_500.withAlphaComponent(0.1)
+        : UIColor.ksr_green_500.withAlphaComponent(0.1)
     }
 
     self.mainButtonBorderColor = emptyState
       .map { $0 == .activity
-        ? UIColor.ksr_forest_500.colorWithAlphaComponent(0.2).CGColor
-        : UIColor.ksr_green_700.colorWithAlphaComponent(0.2).CGColor
+        ? UIColor.ksr_forest_500.withAlphaComponent(0.2).cgColor
+        : UIColor.ksr_green_700.withAlphaComponent(0.2).cgColor
     }
 
     self.mainButtonText = emptyState.map(buttonText(emptyState:))
 
     self.mainButtonTitleColor = emptyState
-      .map { $0 == .activity ? .ksr_forest_600 : .ksr_text_green_700 }
+      .map { $0 == .activity ? UIColor.ksr_forest_600 : UIColor.ksr_text_green_700 }
 
     self.subtitleLabelText = emptyState.map(textForSubtitle(emptyState:))
 
     self.subtitleLabelColor = emptyState
-      .map { $0 == .activity ? .ksr_forest_500 : .ksr_text_navy_700 }
+      .map { $0 == .activity ? UIColor.ksr_forest_500 : UIColor.ksr_text_navy_700 }
 
     self.titleLabelText = emptyState.map(textForTitle(emptyState:))
 
     self.titleLabelColor = emptyState
-      .map { $0 == .activity ? .ksr_forest_600 : .ksr_text_navy_700 }
+      .map { $0 == .activity ? UIColor.ksr_forest_600 : UIColor.ksr_text_navy_700 }
 
     self.backgroundStripViewAlpha = emptyState
       .map { $0 == .activity ? 0.45 : 1.0 }
 
     self.backgroundStripViewColor = emptyState
-      .map { $0 == .activity ? .whiteColor() : .ksr_grey_100 }
+      .map { $0 == .activity ? UIColor.white : UIColor.ksr_grey_100 }
 
     self.notifyDelegateToGoToDiscovery = emptyState
       .takeWhen(self.mainButtonTappedProperty.signal)
       .filter { $0 != .socialDisabled && $0 != .socialNoPledges }
-      .map {
-        guard $0 != .activity else { return nil }
+      .map { emptyState -> DiscoveryParams? in
+        guard emptyState != .activity else { return nil }
         return DiscoveryParams.defaults |> DiscoveryParams.lens.sort .~ .magic
     }
 
@@ -138,26 +140,26 @@ public final class EmptyStatesViewModel: EmptyStatesViewModelType, EmptyStatesVi
       .map { $0 == .activity ? 50.0 + Styles.grid(3) : Styles.grid(3) }
 
     emptyState
-      .observeNext { AppEnvironment.current.koala.trackEmptyStateViewed(type: $0) }
+      .observeValues { AppEnvironment.current.koala.trackEmptyStateViewed(type: $0) }
 
     emptyState
       .takeWhen(self.mainButtonTappedProperty.signal)
-      .observeNext { AppEnvironment.current.koala.trackEmptyStateButtonTapped(type: $0) }
+      .observeValues { AppEnvironment.current.koala.trackEmptyStateButtonTapped(type: $0) }
   }
   // swiftlint:enable function_body_length
 
-  private let emptyStateProperty = MutableProperty<EmptyState?>(nil)
-  public func configureWith(emptyState emptyState: EmptyState?) {
+  fileprivate let emptyStateProperty = MutableProperty<EmptyState?>(nil)
+  public func configureWith(emptyState: EmptyState?) {
     self.emptyStateProperty.value = emptyState
   }
-  private let mainButtonTappedProperty = MutableProperty()
+  fileprivate let mainButtonTappedProperty = MutableProperty()
   public func mainButtonTapped() {
     self.mainButtonTappedProperty.value = ()
   }
-  public func setEmptyState(emptyState: EmptyState) {
+  public func setEmptyState(_ emptyState: EmptyState) {
     self.emptyStateProperty.value = emptyState
   }
-  private let viewWillAppearProperty = MutableProperty()
+  fileprivate let viewWillAppearProperty = MutableProperty()
   public func viewWillAppear() {
     self.viewWillAppearProperty.value = ()
   }
@@ -181,7 +183,7 @@ public final class EmptyStatesViewModel: EmptyStatesViewModelType, EmptyStatesVi
   public var outputs: EmptyStatesViewModelOutputs { return self }
 }
 
-private func textForSubtitle(emptyState emptyState: EmptyState) -> String {
+private func textForSubtitle(emptyState: EmptyState) -> String {
   switch emptyState {
   case .activity:
     return Strings.Find_projects_youll_love_in_art_design_film()
@@ -196,7 +198,7 @@ private func textForSubtitle(emptyState emptyState: EmptyState) -> String {
   }
 }
 
-private func textForTitle(emptyState emptyState: EmptyState) -> String {
+private func textForTitle(emptyState: EmptyState) -> String {
   switch emptyState {
   case .activity:
     return Strings.Bring_new_ideas_to_life()
@@ -211,7 +213,7 @@ private func textForTitle(emptyState emptyState: EmptyState) -> String {
   }
 }
 
-private func buttonText(emptyState emptyState: EmptyState) -> String {
+private func buttonText(emptyState: EmptyState) -> String {
   switch emptyState {
   case .socialDisabled:
     return Strings.Find_and_follow_friends()

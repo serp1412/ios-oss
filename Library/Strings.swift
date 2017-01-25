@@ -4,8 +4,6 @@
 //
 //=======================================================================
 
-
-
 // swiftlint:disable valid_docs
 // swiftlint:disable line_length
 // swiftlint:disable file_length
@@ -19,7 +17,7 @@ public enum Strings {
    - **fr**: "Environ %{reward_amount}"
    - **en**: "About %{reward_amount}"
   */
-  public static func About_reward_amount(reward_amount reward_amount: String) -> String {
+  public static func About_reward_amount(reward_amount: String) -> String {
     return localizedString(
       key: "About_reward_amount",
       defaultValue: "About %{reward_amount}",
@@ -300,6 +298,22 @@ public enum Strings {
     )
   }
   /**
+   "All %{category_name} Projects"
+
+   - **es**: "All %{category_name} Projects"
+   - **de**: "Alle Projekte der Kategorie %{category_name}"
+   - **fr**: "Tous les projets de la catégorie %{category_name}"
+   - **en**: "All %{category_name} Projects"
+  */
+  public static func All_category_name_Projects(category_name: String) -> String {
+    return localizedString(
+      key: "All_category_name_Projects",
+      defaultValue: "All %{category_name} Projects",
+      count: nil,
+      substitutions: ["category_name": category_name]
+    )
+  }
+  /**
    "All gone"
 
    - **es**: "¡Recompensas agotadas!"
@@ -323,7 +337,7 @@ public enum Strings {
    - **fr**: "Montant : %{amount}, montant précédant : %{previous_amount}"
    - **en**: "Amount: %{amount}, previous amount: %{previous_amount}"
   */
-  public static func Amount_previous_amount(amount amount: String, previous_amount: String) -> String {
+  public static func Amount_previous_amount(amount: String, previous_amount: String) -> String {
     return localizedString(
       key: "Amount_previous_amount",
       defaultValue: "Amount: %{amount}, previous amount: %{previous_amount}",
@@ -339,7 +353,7 @@ public enum Strings {
    - **fr**: "Montant : %{amount}, %{reward}"
    - **en**: "Amount: %{amount}, %{reward}"
   */
-  public static func Amount_reward(amount amount: String, reward: String) -> String {
+  public static func Amount_reward(amount: String, reward: String) -> String {
     return localizedString(
       key: "Amount_reward",
       defaultValue: "Amount: %{amount}, %{reward}",
@@ -361,6 +375,22 @@ public enum Strings {
       defaultValue: "Ask me anything",
       count: nil,
       substitutions: [:]
+    )
+  }
+  /**
+   "Available to watch for %{time} more %{units}"
+
+   - **es**: "Available to watch for %{time} more %{units}"
+   - **de**: "Kann noch %{time} %{units} angesehen werden"
+   - **fr**: "Plus que %{time}%{units} pour regarder cette diffusion"
+   - **en**: "Available to watch for %{time} more %{units}"
+  */
+  public static func Available_to_watch_for_time_more_units(time: String, units: String) -> String {
+    return localizedString(
+      key: "Available_to_watch_for_time_more_units",
+      defaultValue: "Available to watch for %{time} more %{units}",
+      count: nil,
+      substitutions: ["time": time, "units": units]
     )
   }
   /**
@@ -435,7 +465,7 @@ public enum Strings {
    - **fr**: "Projets soutenus : %{project_count}"
    - **en**: "Backed projects %{project_count}"
   */
-  public static func Backed_projects_projects_count(project_count project_count: String) -> String {
+  public static func Backed_projects_projects_count(project_count: String) -> String {
     return localizedString(
       key: "Backed_projects_projects_count",
       defaultValue: "Backed projects %{project_count}",
@@ -456,7 +486,7 @@ contributeurs"
    - **en**: "%{backers_count}
 backers"
   */
-  public static func Backers_count_separator_backers(backers_count backers_count: Int) -> String {
+  public static func Backers_count_separator_backers(backers_count: Int) -> String {
     return localizedString(
       key: "Backers_count_separator_backers",
       defaultValue: "%{backers_count}\nbackers",
@@ -536,7 +566,7 @@ backers"
    - **fr**: "Sélectionne %{location} pour la livraison."
    - **en**: "Chooses %{location} for shipping."
   */
-  public static func Chooses_location_for_shipping(location location: String) -> String {
+  public static func Chooses_location_for_shipping(location: String) -> String {
     return localizedString(
       key: "Chooses_location_for_shipping",
       defaultValue: "Chooses %{location} for shipping.",
@@ -728,12 +758,44 @@ backers"
    - **fr**: "Projets créés : %{projects_count}"
    - **en**: "Created projects %{projects_count}"
   */
-  public static func Created_projects_projects_count(projects_count projects_count: String) -> String {
+  public static func Created_projects_projects_count(projects_count: String) -> String {
     return localizedString(
       key: "Created_projects_projects_count",
       defaultValue: "Created projects %{projects_count}",
       count: nil,
       substitutions: ["projects_count": projects_count]
+    )
+  }
+  /**
+   "<b>%{creator_name}</b> is live now"
+
+   - **es**: "<b>%{creator_name}</b> is live now"
+   - **de**: "<b>%{creator_name}</b> ist jetzt live"
+   - **fr**: "<b>%{creator_name}</b> est en direct en ce moment"
+   - **en**: "<b>%{creator_name}</b> is live now"
+  */
+  public static func Creator_name_is_live_now(creator_name: String) -> String {
+    return localizedString(
+      key: "Creator_name_is_live_now",
+      defaultValue: "<b>%{creator_name}</b> is live now",
+      count: nil,
+      substitutions: ["creator_name": creator_name]
+    )
+  }
+  /**
+   "%{creator_name} is streaming live on Kickstarter"
+
+   - **es**: "%{creator_name} is streaming live on Kickstarter"
+   - **de**: "%{creator_name} streamt gerade live auf Kickstarter"
+   - **fr**: "%{creator_name} est en direct sur Kickstarter"
+   - **en**: "%{creator_name} is streaming live on Kickstarter"
+  */
+  public static func Creator_name_is_streaming_live_on_Kickstarter(creator_name: String) -> String {
+    return localizedString(
+      key: "Creator_name_is_streaming_live_on_Kickstarter",
+      defaultValue: "%{creator_name} is streaming live on Kickstarter",
+      count: nil,
+      substitutions: ["creator_name": creator_name]
     )
   }
   /**
@@ -744,12 +806,60 @@ backers"
    - **fr**: "<b>%{creator_name}</b> a besoin de quelques informations pour vous envoyer votre récompense pour le projet <b>%{project_name}</b>."
    - **en**: "<b>%{creator_name}</b> needs some information to deliver your reward for <b>%{project_name}</b>."
   */
-  public static func Creator_name_needs_some_information_to_deliver_your_reward_for_project_name(creator_name creator_name: String, project_name: String) -> String {
+  public static func Creator_name_needs_some_information_to_deliver_your_reward_for_project_name(creator_name: String, project_name: String) -> String {
     return localizedString(
       key: "Creator_name_needs_some_information_to_deliver_your_reward_for_project_name",
       defaultValue: "<b>%{creator_name}</b> needs some information to deliver your reward for <b>%{project_name}</b>.",
       count: nil,
       substitutions: ["creator_name": creator_name, "project_name": project_name]
+    )
+  }
+  /**
+   "<b>%{creator_name}</b> was live %{time_ago}"
+
+   - **es**: "<b>%{creator_name}</b> was live %{time_ago}"
+   - **de**: "<b>%{creator_name}</b> war vor %{time_ago} live"
+   - **fr**: "<b>%{creator_name}</b> était en direct %{time_ago}"
+   - **en**: "<b>%{creator_name}</b> was live %{time_ago}"
+  */
+  public static func Creator_name_was_live_time_ago(creator_name: String, time_ago: String) -> String {
+    return localizedString(
+      key: "Creator_name_was_live_time_ago",
+      defaultValue: "<b>%{creator_name}</b> was live %{time_ago}",
+      count: nil,
+      substitutions: ["creator_name": creator_name, "time_ago": time_ago]
+    )
+  }
+  /**
+   "%{creator_name} was streaming live on Kickstarter"
+
+   - **es**: "%{creator_name} was streaming live on Kickstarter"
+   - **de**: "Der Stream von %{creator_name} war gerade live auf Kickstarter"
+   - **fr**: "%{creator_name} était en direct sur Kickstarter"
+   - **en**: "%{creator_name} was streaming live on Kickstarter"
+  */
+  public static func Creator_name_was_streaming_live_on_Kickstarter(creator_name: String) -> String {
+    return localizedString(
+      key: "Creator_name_was_streaming_live_on_Kickstarter",
+      defaultValue: "%{creator_name} was streaming live on Kickstarter",
+      count: nil,
+      substitutions: ["creator_name": creator_name]
+    )
+  }
+  /**
+   "%{creator_name} will be streaming live on Kickstarter %{in_duration}"
+
+   - **es**: "%{creator_name} will be streaming live on Kickstarter %{in_duration}"
+   - **de**: "%{creator_name} wird in %{in_duration} live auf Kickstarter streamen"
+   - **fr**: "%{creator_name} sera en direct sur Kickstarter %{in_duration}"
+   - **en**: "%{creator_name} will be streaming live on Kickstarter %{in_duration}"
+  */
+  public static func Creator_name_will_be_streaming_live_on_Kickstarter_in_duration(creator_name: String, in_duration: String) -> String {
+    return localizedString(
+      key: "Creator_name_will_be_streaming_live_on_Kickstarter_in_duration",
+      defaultValue: "%{creator_name} will be streaming live on Kickstarter %{in_duration}",
+      count: nil,
+      substitutions: ["creator_name": creator_name, "in_duration": in_duration]
     )
   }
   /**
@@ -897,6 +1007,38 @@ backers"
     )
   }
   /**
+   "Failed to retrieve live stream event details"
+
+   - **es**: "Failed to retrieve live stream event details"
+   - **de**: "Details zu Live-Stream-Event konnten nicht geladen werden"
+   - **fr**: "Impossible de récupérer les détails de la diffusion en direct"
+   - **en**: "Failed to retrieve live stream event details"
+  */
+  public static func Failed_to_retrieve_live_stream_event_details() -> String {
+    return localizedString(
+      key: "Failed_to_retrieve_live_stream_event_details",
+      defaultValue: "Failed to retrieve live stream event details",
+      count: nil,
+      substitutions: [:]
+    )
+  }
+  /**
+   "Failed to update subscription"
+
+   - **es**: "Failed to update subscription"
+   - **de**: "Abo konnte nicht aktualisiert werden"
+   - **fr**: "Mise à jour de l'abonnement impossible"
+   - **en**: "Failed to update subscription"
+  */
+  public static func Failed_to_update_subscription() -> String {
+    return localizedString(
+      key: "Failed_to_update_subscription",
+      defaultValue: "Failed to update subscription",
+      count: nil,
+      substitutions: [:]
+    )
+  }
+  /**
    "Filter by all projects"
 
    - **es**: "Filtro: Todos los proyectos"
@@ -920,7 +1062,7 @@ backers"
    - **fr**: "Filtrer par catégorie : %{category_name}"
    - **en**: "Filter by %{category_name}"
   */
-  public static func Filter_by_category_name(category_name category_name: String) -> String {
+  public static func Filter_by_category_name(category_name: String) -> String {
     return localizedString(
       key: "Filter_by_category_name",
       defaultValue: "Filter by %{category_name}",
@@ -1000,7 +1142,7 @@ backers"
    - **fr**: "Filtrer : %{subcategory_name}, sous %{category_name}"
    - **en**: "Filter by %{subcategory_name} in %{category_name}"
   */
-  public static func Filter_by_subcategory_name_in_category_name(subcategory_name subcategory_name: String, category_name: String) -> String {
+  public static func Filter_by_subcategory_name_in_category_name(subcategory_name: String, category_name: String) -> String {
     return localizedString(
       key: "Filter_by_subcategory_name_in_category_name",
       defaultValue: "Filter by %{subcategory_name} in %{category_name}",
@@ -1016,7 +1158,7 @@ backers"
    - **fr**: "%{filter_name} : %{project_count} projets en cours"
    - **en**: "%{filter_name}: %{project_count} live projects"
   */
-  public static func Filter_name_project_count_live_projects(filter_name filter_name: String, project_count: Int) -> String {
+  public static func Filter_name_project_count_live_projects(filter_name: String, project_count: Int) -> String {
     return localizedString(
       key: "Filter_name_project_count_live_projects",
       defaultValue: "%{filter_name}: %{project_count} live projects",
@@ -1107,7 +1249,7 @@ backers"
   /**
    "Follow friends"
 
-   - **es**: "Seguir a amigos"
+   - **es**: "Seguir amigos"
    - **de**: "Freunden folgen"
    - **fr**: "Suivez vos amis"
    - **en**: "Follow friends"
@@ -1192,7 +1334,7 @@ backers"
    - **fr**: "Abonnement aux actus de %{friend_name}."
    - **en**: "Follows %{friend_name}."
   */
-  public static func Follows_friend_name(friend_name friend_name: String) -> String {
+  public static func Follows_friend_name(friend_name: String) -> String {
     return localizedString(
       key: "Follows_friend_name",
       defaultValue: "Follows %{friend_name}.",
@@ -1208,7 +1350,7 @@ backers"
    - **fr**: "<b>%{friend_name}</b> a soutenu un projet <i>artistique</i>."
    - **en**: "<b>%{friend_name}</b> backed an <i>Art</i> project."
   */
-  public static func Friend_backed_art_project(friend_name friend_name: String) -> String {
+  public static func Friend_backed_art_project(friend_name: String) -> String {
     return localizedString(
       key: "Friend_backed_art_project",
       defaultValue: "<b>%{friend_name}</b> backed an <i>Art</i> project.",
@@ -1224,7 +1366,7 @@ backers"
    - **fr**: "<b>%{friend_name}</b> a soutenu un projet de <i>BD</i>."
    - **en**: "<b>%{friend_name}</b> backed a <i>Comics</i> project."
   */
-  public static func Friend_backed_comics_project(friend_name friend_name: String) -> String {
+  public static func Friend_backed_comics_project(friend_name: String) -> String {
     return localizedString(
       key: "Friend_backed_comics_project",
       defaultValue: "<b>%{friend_name}</b> backed a <i>Comics</i> project.",
@@ -1240,7 +1382,7 @@ backers"
    - **fr**: "<b>%{friend_name}</b> a soutenu un projet <i>d'artisanat</i>."
    - **en**: "<b>%{friend_name}</b> backed a <i>Crafts</i> project."
   */
-  public static func Friend_backed_crafts_project(friend_name friend_name: String) -> String {
+  public static func Friend_backed_crafts_project(friend_name: String) -> String {
     return localizedString(
       key: "Friend_backed_crafts_project",
       defaultValue: "<b>%{friend_name}</b> backed a <i>Crafts</i> project.",
@@ -1256,7 +1398,7 @@ backers"
    - **fr**: "<b>%{friend_name}</b> a soutenu un projet de <i>danse</i>."
    - **en**: "<b>%{friend_name}</b> backed a <i>Dance</i> project."
   */
-  public static func Friend_backed_dance_project(friend_name friend_name: String) -> String {
+  public static func Friend_backed_dance_project(friend_name: String) -> String {
     return localizedString(
       key: "Friend_backed_dance_project",
       defaultValue: "<b>%{friend_name}</b> backed a <i>Dance</i> project.",
@@ -1272,7 +1414,7 @@ backers"
    - **fr**: "<b>%{friend_name}</b> a soutenu un projet <i>design</i>."
    - **en**: "<b>%{friend_name}</b> backed a <i>Design</i> project."
   */
-  public static func Friend_backed_design_project(friend_name friend_name: String) -> String {
+  public static func Friend_backed_design_project(friend_name: String) -> String {
     return localizedString(
       key: "Friend_backed_design_project",
       defaultValue: "<b>%{friend_name}</b> backed a <i>Design</i> project.",
@@ -1288,7 +1430,7 @@ backers"
    - **fr**: "<b>%{friend_name}</b> a soutenu un projet de <i>mode</i>."
    - **en**: "<b>%{friend_name}</b> backed a <i>Fashion</i> project."
   */
-  public static func Friend_backed_fashion_project(friend_name friend_name: String) -> String {
+  public static func Friend_backed_fashion_project(friend_name: String) -> String {
     return localizedString(
       key: "Friend_backed_fashion_project",
       defaultValue: "<b>%{friend_name}</b> backed a <i>Fashion</i> project.",
@@ -1304,7 +1446,7 @@ backers"
    - **fr**: "<b>%{friend_name}</b> a soutenu un projet <i>cinéma et vidéo</i>."
    - **en**: "<b>%{friend_name}</b> backed a <i>Film & Video</i> project."
   */
-  public static func Friend_backed_film_project(friend_name friend_name: String) -> String {
+  public static func Friend_backed_film_project(friend_name: String) -> String {
     return localizedString(
       key: "Friend_backed_film_project",
       defaultValue: "<b>%{friend_name}</b> backed a <i>Film & Video</i> project.",
@@ -1320,7 +1462,7 @@ backers"
    - **fr**: "<b>%{friend_name}</b> a soutenu un projet <i>gastronomique</i>."
    - **en**: "<b>%{friend_name}</b> backed a <i>Food</i> project."
   */
-  public static func Friend_backed_food_project(friend_name friend_name: String) -> String {
+  public static func Friend_backed_food_project(friend_name: String) -> String {
     return localizedString(
       key: "Friend_backed_food_project",
       defaultValue: "<b>%{friend_name}</b> backed a <i>Food</i> project.",
@@ -1336,7 +1478,7 @@ backers"
    - **fr**: "<b>%{friend_name}</b> a soutenu un projet de <i>jeu</i>."
    - **en**: "<b>%{friend_name}</b> backed a <i>Games</i> project."
   */
-  public static func Friend_backed_games_project(friend_name friend_name: String) -> String {
+  public static func Friend_backed_games_project(friend_name: String) -> String {
     return localizedString(
       key: "Friend_backed_games_project",
       defaultValue: "<b>%{friend_name}</b> backed a <i>Games</i> project.",
@@ -1352,7 +1494,7 @@ backers"
    - **fr**: "<b>%{friend_name}</b> a soutenu un projet de <i>journalisme</i>."
    - **en**: "<b>%{friend_name}</b> backed a <i>Journalism</i> project."
   */
-  public static func Friend_backed_journalism_project(friend_name friend_name: String) -> String {
+  public static func Friend_backed_journalism_project(friend_name: String) -> String {
     return localizedString(
       key: "Friend_backed_journalism_project",
       defaultValue: "<b>%{friend_name}</b> backed a <i>Journalism</i> project.",
@@ -1368,7 +1510,7 @@ backers"
    - **fr**: "<b>%{friend_name}</b> a soutenu un projet <i>musical</i>."
    - **en**: "<b>%{friend_name}</b> backed a <i>Music</i> project."
   */
-  public static func Friend_backed_music_project(friend_name friend_name: String) -> String {
+  public static func Friend_backed_music_project(friend_name: String) -> String {
     return localizedString(
       key: "Friend_backed_music_project",
       defaultValue: "<b>%{friend_name}</b> backed a <i>Music</i> project.",
@@ -1384,7 +1526,7 @@ backers"
    - **fr**: "<b>%{friend_name}</b> a soutenu un projet de <i>photographie</i>."
    - **en**: "<b>%{friend_name}</b> backed a <i>Photography</i> project."
   */
-  public static func Friend_backed_photography_project(friend_name friend_name: String) -> String {
+  public static func Friend_backed_photography_project(friend_name: String) -> String {
     return localizedString(
       key: "Friend_backed_photography_project",
       defaultValue: "<b>%{friend_name}</b> backed a <i>Photography</i> project.",
@@ -1400,7 +1542,7 @@ backers"
    - **fr**: "<b>%{friend_name}</b> a soutenu un projet <i>d'édition</i>."
    - **en**: "<b>%{friend_name}</b> backed a <i>Publishing</i> project."
   */
-  public static func Friend_backed_publishing_project(friend_name friend_name: String) -> String {
+  public static func Friend_backed_publishing_project(friend_name: String) -> String {
     return localizedString(
       key: "Friend_backed_publishing_project",
       defaultValue: "<b>%{friend_name}</b> backed a <i>Publishing</i> project.",
@@ -1416,7 +1558,7 @@ backers"
    - **fr**: "<b>%{friend_name}</b> a soutenu un projet de <i>technologie</i>."
    - **en**: "<b>%{friend_name}</b> backed a <i>Technology</i> project."
   */
-  public static func Friend_backed_tech_project(friend_name friend_name: String) -> String {
+  public static func Friend_backed_tech_project(friend_name: String) -> String {
     return localizedString(
       key: "Friend_backed_tech_project",
       defaultValue: "<b>%{friend_name}</b> backed a <i>Technology</i> project.",
@@ -1432,7 +1574,7 @@ backers"
    - **fr**: "<b>%{friend_name}</b> a soutenu un projet de <i>théâtre</i>."
    - **en**: "<b>%{friend_name}</b> backed a <i>Theater</i> project."
   */
-  public static func Friend_backed_theater_project(friend_name friend_name: String) -> String {
+  public static func Friend_backed_theater_project(friend_name: String) -> String {
     return localizedString(
       key: "Friend_backed_theater_project",
       defaultValue: "<b>%{friend_name}</b> backed a <i>Theater</i> project.",
@@ -1448,7 +1590,7 @@ backers"
    - **fr**: "%{friend_name} a lancé un projet !"
    - **en**: "%{friend_name} launched a project!"
   */
-  public static func Friend_name_launched_a_project(friend_name friend_name: String) -> String {
+  public static func Friend_name_launched_a_project(friend_name: String) -> String {
     return localizedString(
       key: "Friend_name_launched_a_project",
       defaultValue: "%{friend_name} launched a project!",
@@ -1571,9 +1713,25 @@ with friends."
     )
   }
   /**
+   "Keep up with future live streams"
+
+   - **es**: "Keep up with future live streams"
+   - **de**: "Zeitnahe Info zu zukünftigen Live-Streams"
+   - **fr**: "Soyez informé des prochaines diffusions en direct"
+   - **en**: "Keep up with future live streams"
+  */
+  public static func Keep_up_with_future_live_streams() -> String {
+    return localizedString(
+      key: "Keep_up_with_future_live_streams",
+      defaultValue: "Keep up with future live streams",
+      count: nil,
+      substitutions: [:]
+    )
+  }
+  /**
    "Kickstarter (if funded)"
 
-   - **es**: "Kickstarter (si financiación es exitosa)"
+   - **es**: "Kickstarter (si la financiación es exitosa)"
    - **de**: "Kickstarter (bei Finanzierung)"
    - **fr**: "Kickstarter (si le projet est financé)"
    - **en**: "Kickstarter (if funded)"
@@ -1626,12 +1784,108 @@ with friends."
    - **fr**: "%{left_count} restantes"
    - **en**: "%{left_count} left"
   */
-  public static func Left_count_left(left_count left_count: Int) -> String {
+  public static func Left_count_left(left_count: Int) -> String {
     return localizedString(
       key: "Left_count_left",
       defaultValue: "%{left_count} left",
       count: left_count,
       substitutions: ["left_count": Format.wholeNumber(left_count)]
+    )
+  }
+  /**
+   "Live"
+
+   - **es**: "Live"
+   - **de**: "Live"
+   - **fr**: "En direct"
+   - **en**: "Live"
+  */
+  public static func Live() -> String {
+    return localizedString(
+      key: "Live",
+      defaultValue: "Live",
+      count: nil,
+      substitutions: [:]
+    )
+  }
+  /**
+   "Live Stream"
+
+   - **es**: "Live Stream"
+   - **de**: "Live-Stream"
+   - **fr**: "Diffusion en direct"
+   - **en**: "Live Stream"
+  */
+  public static func Live_Stream() -> String {
+    return localizedString(
+      key: "Live_Stream",
+      defaultValue: "Live Stream",
+      count: nil,
+      substitutions: [:]
+    )
+  }
+  /**
+   "Live Streaming now"
+
+   - **es**: "Live Streaming now"
+   - **de**: "Jetzt live"
+   - **fr**: "Diffusion en direct en cours"
+   - **en**: "Live Streaming now"
+  */
+  public static func Live_Streaming_now() -> String {
+    return localizedString(
+      key: "Live_Streaming_now",
+      defaultValue: "Live Streaming now",
+      count: nil,
+      substitutions: [:]
+    )
+  }
+  /**
+   "Live stream countdown"
+
+   - **es**: "Live stream countdown"
+   - **de**: "Live-Stream Countdown"
+   - **fr**: "Compte à rebours de la diffusion en direct"
+   - **en**: "Live stream countdown"
+  */
+  public static func Live_stream_countdown() -> String {
+    return localizedString(
+      key: "Live_stream_countdown",
+      defaultValue: "Live stream countdown",
+      count: nil,
+      substitutions: [:]
+    )
+  }
+  /**
+   "Loading"
+
+   - **es**: "Loading"
+   - **de**: "Ladevorgang läuft"
+   - **fr**: "Chargement"
+   - **en**: "Loading"
+  */
+  public static func Loading() -> String {
+    return localizedString(
+      key: "Loading",
+      defaultValue: "Loading",
+      count: nil,
+      substitutions: [:]
+    )
+  }
+  /**
+   "Log in or sign up to subscribe"
+
+   - **es**: "Log in or sign up to subscribe"
+   - **de**: "Bitte einloggen oder registrieren"
+   - **fr**: "Connectez-vous ou inscrivez-vous pour vous abonner"
+   - **en**: "Log in or sign up to subscribe"
+  */
+  public static func Log_in_or_sign_up_to_subscribe() -> String {
+    return localizedString(
+      key: "Log_in_or_sign_up_to_subscribe",
+      defaultValue: "Log in or sign up to subscribe",
+      count: nil,
+      substitutions: [:]
     )
   }
   /**
@@ -1798,7 +2052,7 @@ with friends."
    "No pledges 
 from friends yet."
 
-   - **es**: "No hay contribuciones de amigos todavía."
+   - **es**: "Todavía no hay contribuciones de amigos."
    - **de**: "Es gibt noch keine Beiträge von Freunden."
    - **fr**: "Mes amis 
 n'ont rien soutenu."
@@ -1809,6 +2063,22 @@ from friends yet."
     return localizedString(
       key: "No_pledges_from_friends_yet",
       defaultValue: "No pledges \nfrom friends yet.",
+      count: nil,
+      substitutions: [:]
+    )
+  }
+  /**
+   "No replay is available for this live stream."
+
+   - **es**: "No replay is available for this live stream."
+   - **de**: "Kein Replay verügbar für diesen Live-Stream."
+   - **fr**: "Pas de rediffusion possible pour cette diffusion en direct."
+   - **en**: "No replay is available for this live stream."
+  */
+  public static func No_replay_is_available_for_this_live_stream() -> String {
+    return localizedString(
+      key: "No_replay_is_available_for_this_live_stream",
+      defaultValue: "No replay is available for this live stream.",
       count: nil,
       substitutions: [:]
     )
@@ -2045,7 +2315,7 @@ from friends yet."
    - **fr**: "Veuillez saisir un montant de %{amount} ou moins."
    - **en**: "Please enter an amount of %{amount} or less."
   */
-  public static func Please_enter_an_amount_of_amount_or_less(amount amount: String) -> String {
+  public static func Please_enter_an_amount_of_amount_or_less(amount: String) -> String {
     return localizedString(
       key: "Please_enter_an_amount_of_amount_or_less",
       defaultValue: "Please enter an amount of %{amount} or less.",
@@ -2061,7 +2331,7 @@ from friends yet."
    - **fr**: "Veuillez saisir un montant de %{amount} ou plus."
    - **en**: "Please enter an amount of %{amount} or more."
   */
-  public static func Please_enter_an_amount_of_amount_or_more(amount amount: String) -> String {
+  public static func Please_enter_an_amount_of_amount_or_more(amount: String) -> String {
     return localizedString(
       key: "Please_enter_an_amount_of_amount_or_more",
       defaultValue: "Please enter an amount of %{amount} or more.",
@@ -2248,6 +2518,54 @@ daring ideas."
     )
   }
   /**
+   "Recorded Live"
+
+   - **es**: "Recorded Live"
+   - **de**: "Live aufgenommen"
+   - **fr**: "Enregistré en direct"
+   - **en**: "Recorded Live"
+  */
+  public static func Recorded_Live() -> String {
+    return localizedString(
+      key: "Recorded_Live",
+      defaultValue: "Recorded Live",
+      count: nil,
+      substitutions: [:]
+    )
+  }
+  /**
+   "Recorded live with <b>%{creator_name}</b>"
+
+   - **es**: "Recorded live with <b>%{creator_name}</b>"
+   - **de**: "Live aufgenommen von <b>%{creator_name}</b>"
+   - **fr**: "Enregistré en direct avec <b>%{creator_name}</b>"
+   - **en**: "Recorded live with <b>%{creator_name}</b>"
+  */
+  public static func Recorded_live_with_creator_name(creator_name: String) -> String {
+    return localizedString(
+      key: "Recorded_live_with_creator_name",
+      defaultValue: "Recorded live with <b>%{creator_name}</b>",
+      count: nil,
+      substitutions: ["creator_name": creator_name]
+    )
+  }
+  /**
+   "Replay"
+
+   - **es**: "Replay"
+   - **de**: "Replay"
+   - **fr**: "Rediffuser"
+   - **en**: "Replay"
+  */
+  public static func Replay() -> String {
+    return localizedString(
+      key: "Replay",
+      defaultValue: "Replay",
+      count: nil,
+      substitutions: [:]
+    )
+  }
+  /**
    "%{reward_survey_count} Reward Surveys"
 
    - **es**: "%{reward_survey_count} cuestionarios"
@@ -2255,7 +2573,7 @@ daring ideas."
    - **fr**: "%{reward_survey_count} questionnaires"
    - **en**: "%{reward_survey_count} Reward Surveys"
   */
-  public static func Reward_Surveys(reward_survey_count reward_survey_count: Int) -> String {
+  public static func Reward_Surveys(reward_survey_count: Int) -> String {
     return localizedString(
       key: "Reward_Surveys",
       defaultValue: "%{reward_survey_count} Reward Surveys",
@@ -2271,7 +2589,7 @@ daring ideas."
    - **fr**: "%{rewards_count} récompenses"
    - **en**: "%{rewards_count} rewards"
   */
-  public static func Rewards_count_rewards(rewards_count rewards_count: Int) -> String {
+  public static func Rewards_count_rewards(rewards_count: Int) -> String {
     return localizedString(
       key: "Rewards_count_rewards",
       defaultValue: "%{rewards_count} rewards",
@@ -2287,7 +2605,7 @@ daring ideas."
    - **fr**: "%{rewards_count} récompenses :"
    - **en**: "%{rewards_count} rewards:"
   */
-  public static func Rewards_count_rewards_colon(rewards_count rewards_count: Int) -> String {
+  public static func Rewards_count_rewards_colon(rewards_count: Int) -> String {
     return localizedString(
       key: "Rewards_count_rewards_colon",
       defaultValue: "%{rewards_count} rewards:",
@@ -2554,6 +2872,54 @@ catch your eye?"
     )
   }
   /**
+   "Starting soon"
+
+   - **es**: "Starting soon"
+   - **de**: "Beginnt in Kürze"
+   - **fr**: "Bientôt en direct"
+   - **en**: "Starting soon"
+  */
+  public static func Starting_soon() -> String {
+    return localizedString(
+      key: "Starting_soon",
+      defaultValue: "Starting soon",
+      count: nil,
+      substitutions: [:]
+    )
+  }
+  /**
+   "Subscribe"
+
+   - **es**: "Subscribe"
+   - **de**: "Abonnieren"
+   - **fr**: "S'abonner"
+   - **en**: "Subscribe"
+  */
+  public static func Subscribe() -> String {
+    return localizedString(
+      key: "Subscribe",
+      defaultValue: "Subscribe",
+      count: nil,
+      substitutions: [:]
+    )
+  }
+  /**
+   "Subscribed"
+
+   - **es**: "Subscribed"
+   - **de**: "Abo aktiviert"
+   - **fr**: "Abonné "
+   - **en**: "Subscribed"
+  */
+  public static func Subscribed() -> String {
+    return localizedString(
+      key: "Subscribed",
+      defaultValue: "Subscribed",
+      count: nil,
+      substitutions: [:]
+    )
+  }
+  /**
    "Survey"
 
    - **es**: "Cuestionario"
@@ -2618,6 +2984,70 @@ catch your eye?"
     )
   }
   /**
+   "The live stream failed to connect"
+
+   - **es**: "The live stream failed to connect"
+   - **de**: "Keine Verbindungn zu Live-Stream"
+   - **fr**: "Échec de connexion à la diffusion en direct"
+   - **en**: "The live stream failed to connect"
+  */
+  public static func The_live_stream_failed_to_connect() -> String {
+    return localizedString(
+      key: "The_live_stream_failed_to_connect",
+      defaultValue: "The live stream failed to connect",
+      count: nil,
+      substitutions: [:]
+    )
+  }
+  /**
+   "The live stream was interrupted"
+
+   - **es**: "The live stream was interrupted"
+   - **de**: "Live-Stream wurde unterbrochen"
+   - **fr**: "Diffusion en direct interrompue"
+   - **en**: "The live stream was interrupted"
+  */
+  public static func The_live_stream_was_interrupted() -> String {
+    return localizedString(
+      key: "The_live_stream_was_interrupted",
+      defaultValue: "The live stream was interrupted",
+      count: nil,
+      substitutions: [:]
+    )
+  }
+  /**
+   "The live stream will start soon"
+
+   - **es**: "The live stream will start soon"
+   - **de**: "Live-Stream started in Kürze"
+   - **fr**: "La diffusion en direct va bientôt commencer"
+   - **en**: "The live stream will start soon"
+  */
+  public static func The_live_stream_will_start_soon() -> String {
+    return localizedString(
+      key: "The_live_stream_will_start_soon",
+      defaultValue: "The live stream will start soon",
+      count: nil,
+      substitutions: [:]
+    )
+  }
+  /**
+   "The replay will start soon"
+
+   - **es**: "The replay will start soon"
+   - **de**: "Replay started in Kürze"
+   - **fr**: "La rediffusion sera bientôt disponible"
+   - **en**: "The replay will start soon"
+  */
+  public static func The_replay_will_start_soon() -> String {
+    return localizedString(
+      key: "The_replay_will_start_soon",
+      defaultValue: "The replay will start soon",
+      count: nil,
+      substitutions: [:]
+    )
+  }
+  /**
    "This Facebook account is already linked to another Kickstarter user."
 
    - **es**: "Esta cuenta de Facebook ya está asociada a otro usuario de Kickstarter."
@@ -2641,7 +3071,7 @@ catch your eye?"
    - **fr**: "Plus que %{time_left}"
    - **en**: "%{time_left} left"
   */
-  public static func Time_left_left(time_left time_left: String) -> String {
+  public static func Time_left_left(time_left: String) -> String {
     return localizedString(
       key: "Time_left_left",
       defaultValue: "%{time_left} left",
@@ -2657,7 +3087,7 @@ catch your eye?"
    - **fr**: "Désabonnement des actus de %{friend_name}."
    - **en**: "Unfollows %{friend_name}."
   */
-  public static func Unfollows_friend_name(friend_name friend_name: String) -> String {
+  public static func Unfollows_friend_name(friend_name: String) -> String {
     return localizedString(
       key: "Unfollows_friend_name",
       defaultValue: "Unfollows %{friend_name}.",
@@ -2695,6 +3125,22 @@ catch your eye?"
       defaultValue: "Unsuccessfully Funded.",
       count: nil,
       substitutions: [:]
+    )
+  }
+  /**
+   "Upcoming with<br/><b>%{creator_name}</b>"
+
+   - **es**: "Upcoming with<br/><b>%{creator_name}</b>"
+   - **de**: "Demnächst: Video von <br/><b>%{creator_name}</b>"
+   - **fr**: "<br/><b>%{creator_name}</b> bientôt en direct"
+   - **en**: "Upcoming with<br/><b>%{creator_name}</b>"
+  */
+  public static func Upcoming_with_creator_name(creator_name: String) -> String {
+    return localizedString(
+      key: "Upcoming_with_creator_name",
+      defaultValue: "Upcoming with<br/><b>%{creator_name}</b>",
+      count: nil,
+      substitutions: ["creator_name": creator_name]
     )
   }
   /**
@@ -2757,6 +3203,22 @@ catch your eye?"
     return localizedString(
       key: "View_your_reward",
       defaultValue: "View your reward",
+      count: nil,
+      substitutions: [:]
+    )
+  }
+  /**
+   "Watch live"
+
+   - **es**: "Watch live"
+   - **de**: "Live ansehen"
+   - **fr**: "Regarder en direct"
+   - **en**: "Watch live"
+  */
+  public static func Watch_live() -> String {
+    return localizedString(
+      key: "Watch_live",
+      defaultValue: "Watch live",
       count: nil,
       substitutions: [:]
     )
@@ -3265,7 +3727,7 @@ catch your eye?"
    - **fr**: "par %{creator_name}"
    - **en**: "by %{creator_name}"
   */
-  public static func activity_by_creator(creator_name creator_name: String) -> String {
+  public static func activity_by_creator(creator_name: String) -> String {
     return localizedString(
       key: "activity.by_creator",
       defaultValue: "by %{creator_name}",
@@ -3281,7 +3743,7 @@ catch your eye?"
    - **fr**: "%{user_name} a ajusté son engagement"
    - **en**: "%{user_name} adjusted their pledge:"
   */
-  public static func activity_creator_actions_user_name_adjusted_their_pledge(user_name user_name: String) -> String {
+  public static func activity_creator_actions_user_name_adjusted_their_pledge(user_name: String) -> String {
     return localizedString(
       key: "activity.creator.actions.user_name_adjusted_their_pledge",
       defaultValue: "%{user_name} adjusted their pledge:",
@@ -3297,7 +3759,7 @@ catch your eye?"
    - **fr**: "%{user_name} a annulé son engagement"
    - **en**: "%{user_name} canceled their pledge:"
   */
-  public static func activity_creator_actions_user_name_canceled_their_pledge(user_name user_name: String) -> String {
+  public static func activity_creator_actions_user_name_canceled_their_pledge(user_name: String) -> String {
     return localizedString(
       key: "activity.creator.actions.user_name_canceled_their_pledge",
       defaultValue: "%{user_name} canceled their pledge:",
@@ -3313,7 +3775,7 @@ catch your eye?"
    - **fr**: "%{user_name} a changé de récompense"
    - **en**: "%{user_name} changed their reward:"
   */
-  public static func activity_creator_actions_user_name_changed_their_reward(user_name user_name: String) -> String {
+  public static func activity_creator_actions_user_name_changed_their_reward(user_name: String) -> String {
     return localizedString(
       key: "activity.creator.actions.user_name_changed_their_reward",
       defaultValue: "%{user_name} changed their reward:",
@@ -3329,7 +3791,7 @@ catch your eye?"
    - **fr**: "%{user_name} a laissé un commentaire sur l'actu no. %{update_number}."
    - **en**: "%{user_name} commented on Update #%{update_number}:"
   */
-  public static func activity_creator_actions_user_name_commented_on_update_number(user_name user_name: String, update_number: String) -> String {
+  public static func activity_creator_actions_user_name_commented_on_update_number(user_name: String, update_number: String) -> String {
     return localizedString(
       key: "activity.creator.actions.user_name_commented_on_update_number",
       defaultValue: "%{user_name} commented on Update #%{update_number}:",
@@ -3345,7 +3807,7 @@ catch your eye?"
    - **fr**: "%{user_name} a laissé un commentaire sur votre projet"
    - **en**: "%{user_name} commented on your project:"
   */
-  public static func activity_creator_actions_user_name_commented_on_your_project(user_name user_name: String) -> String {
+  public static func activity_creator_actions_user_name_commented_on_your_project(user_name: String) -> String {
     return localizedString(
       key: "activity.creator.actions.user_name_commented_on_your_project",
       defaultValue: "%{user_name} commented on your project:",
@@ -3361,7 +3823,7 @@ catch your eye?"
    - **fr**: "L'engagement de %{user_name} :"
    - **en**: "%{user_name} pledged:"
   */
-  public static func activity_creator_actions_user_name_pledged(user_name user_name: String) -> String {
+  public static func activity_creator_actions_user_name_pledged(user_name: String) -> String {
     return localizedString(
       key: "activity.creator.actions.user_name_pledged",
       defaultValue: "%{user_name} pledged:",
@@ -3377,7 +3839,7 @@ catch your eye?"
    - **fr**: "%{user_name} a publié l'actu no. %{update_number} :"
    - **en**: "%{user_name} posted Update #%{update_number}:"
   */
-  public static func activity_creator_actions_user_name_posted_update_number(user_name user_name: String, update_number: String) -> String {
+  public static func activity_creator_actions_user_name_posted_update_number(user_name: String, update_number: String) -> String {
     return localizedString(
       key: "activity.creator.actions.user_name_posted_update_number",
       defaultValue: "%{user_name} posted Update #%{update_number}:",
@@ -3441,7 +3903,7 @@ catch your eye?"
    - **fr**: "Vous avez commenté l'actu no. %{update_number}"
    - **en**: "You commented on Update #%{update_number}:"
   */
-  public static func activity_creator_actions_you_commented_on_update_number(update_number update_number: String) -> String {
+  public static func activity_creator_actions_you_commented_on_update_number(update_number: String) -> String {
     return localizedString(
       key: "activity.creator.actions.you_commented_on_update_number",
       defaultValue: "You commented on Update #%{update_number}:",
@@ -3521,7 +3983,7 @@ catch your eye?"
    - **fr**: "Vous avez publié l'actu no. %{update_number}"
    - **en**: "You posted Update #%{update_number}:"
   */
-  public static func activity_creator_actions_you_posted_update_number(update_number update_number: String) -> String {
+  public static func activity_creator_actions_you_posted_update_number(update_number: String) -> String {
     return localizedString(
       key: "activity.creator.actions.you_posted_update_number",
       defaultValue: "You posted Update #%{update_number}:",
@@ -3777,7 +4239,7 @@ catch your eye?"
    - **fr**: "%{friend_name} a soutenu un projet artistique."
    - **en**: "%{friend_name} backed an Art project."
   */
-  public static func activity_friend_backed_art_project(friend_name friend_name: String) -> String {
+  public static func activity_friend_backed_art_project(friend_name: String) -> String {
     return localizedString(
       key: "activity.friend_backed_art_project",
       defaultValue: "%{friend_name} backed an Art project.",
@@ -3793,7 +4255,7 @@ catch your eye?"
    - **fr**: "%{friend_name} a soutenu un projet de BD."
    - **en**: "%{friend_name} backed a Comics project."
   */
-  public static func activity_friend_backed_comics_project(friend_name friend_name: String) -> String {
+  public static func activity_friend_backed_comics_project(friend_name: String) -> String {
     return localizedString(
       key: "activity.friend_backed_comics_project",
       defaultValue: "%{friend_name} backed a Comics project.",
@@ -3809,7 +4271,7 @@ catch your eye?"
    - **fr**: "%{friend_name} a soutenu un projet d'artisanat."
    - **en**: "%{friend_name} backed a Crafts project."
   */
-  public static func activity_friend_backed_crafts_project(friend_name friend_name: String) -> String {
+  public static func activity_friend_backed_crafts_project(friend_name: String) -> String {
     return localizedString(
       key: "activity.friend_backed_crafts_project",
       defaultValue: "%{friend_name} backed a Crafts project.",
@@ -3825,7 +4287,7 @@ catch your eye?"
    - **fr**: "%{friend_name} a soutenu un projet de danse."
    - **en**: "%{friend_name} backed a Dance project."
   */
-  public static func activity_friend_backed_dance_project(friend_name friend_name: String) -> String {
+  public static func activity_friend_backed_dance_project(friend_name: String) -> String {
     return localizedString(
       key: "activity.friend_backed_dance_project",
       defaultValue: "%{friend_name} backed a Dance project.",
@@ -3841,7 +4303,7 @@ catch your eye?"
    - **fr**: "%{friend_name} a soutenu un projet design."
    - **en**: "%{friend_name} backed a Design project."
   */
-  public static func activity_friend_backed_design_project(friend_name friend_name: String) -> String {
+  public static func activity_friend_backed_design_project(friend_name: String) -> String {
     return localizedString(
       key: "activity.friend_backed_design_project",
       defaultValue: "%{friend_name} backed a Design project.",
@@ -3857,7 +4319,7 @@ catch your eye?"
    - **fr**: "%{friend_name} a soutenu un projet de mode."
    - **en**: "%{friend_name} backed a Fashion project."
   */
-  public static func activity_friend_backed_fashion_project(friend_name friend_name: String) -> String {
+  public static func activity_friend_backed_fashion_project(friend_name: String) -> String {
     return localizedString(
       key: "activity.friend_backed_fashion_project",
       defaultValue: "%{friend_name} backed a Fashion project.",
@@ -3873,7 +4335,7 @@ catch your eye?"
    - **fr**: "%{friend_name} a soutenu un projet cinéma et vidéo."
    - **en**: "%{friend_name} backed a Film & Video project."
   */
-  public static func activity_friend_backed_film_project(friend_name friend_name: String) -> String {
+  public static func activity_friend_backed_film_project(friend_name: String) -> String {
     return localizedString(
       key: "activity.friend_backed_film_project",
       defaultValue: "%{friend_name} backed a Film & Video project.",
@@ -3889,7 +4351,7 @@ catch your eye?"
    - **fr**: "%{friend_name} a soutenu un projet gastronomique."
    - **en**: "%{friend_name} backed a Food project."
   */
-  public static func activity_friend_backed_food_project(friend_name friend_name: String) -> String {
+  public static func activity_friend_backed_food_project(friend_name: String) -> String {
     return localizedString(
       key: "activity.friend_backed_food_project",
       defaultValue: "%{friend_name} backed a Food project.",
@@ -3905,7 +4367,7 @@ catch your eye?"
    - **fr**: "%{friend_name} a soutenu un projet de jeu."
    - **en**: "%{friend_name} backed a Games project."
   */
-  public static func activity_friend_backed_games_project(friend_name friend_name: String) -> String {
+  public static func activity_friend_backed_games_project(friend_name: String) -> String {
     return localizedString(
       key: "activity.friend_backed_games_project",
       defaultValue: "%{friend_name} backed a Games project.",
@@ -3921,7 +4383,7 @@ catch your eye?"
    - **fr**: "%{friend_name} a soutenu un projet de journalisme."
    - **en**: "%{friend_name} backed a Journalism project."
   */
-  public static func activity_friend_backed_journalism_project(friend_name friend_name: String) -> String {
+  public static func activity_friend_backed_journalism_project(friend_name: String) -> String {
     return localizedString(
       key: "activity.friend_backed_journalism_project",
       defaultValue: "%{friend_name} backed a Journalism project.",
@@ -3937,7 +4399,7 @@ catch your eye?"
    - **fr**: "%{friend_name} a soutenu un projet musical."
    - **en**: "%{friend_name} backed a Music project."
   */
-  public static func activity_friend_backed_music_project(friend_name friend_name: String) -> String {
+  public static func activity_friend_backed_music_project(friend_name: String) -> String {
     return localizedString(
       key: "activity.friend_backed_music_project",
       defaultValue: "%{friend_name} backed a Music project.",
@@ -3953,7 +4415,7 @@ catch your eye?"
    - **fr**: "%{friend_name} a soutenu un projet de photographie."
    - **en**: "%{friend_name} backed a Photography project."
   */
-  public static func activity_friend_backed_photography_project(friend_name friend_name: String) -> String {
+  public static func activity_friend_backed_photography_project(friend_name: String) -> String {
     return localizedString(
       key: "activity.friend_backed_photography_project",
       defaultValue: "%{friend_name} backed a Photography project.",
@@ -3969,7 +4431,7 @@ catch your eye?"
    - **fr**: "<b>%{friend_name} a soutenu le projet </b> %{project_name} par %{creator_name}"
    - **en**: "<b>%{friend_name} backed</b> %{project_name} by %{creator_name}"
   */
-  public static func activity_friend_backed_project_name_by_creator_name(friend_name friend_name: String, project_name: String, creator_name: String) -> String {
+  public static func activity_friend_backed_project_name_by_creator_name(friend_name: String, project_name: String, creator_name: String) -> String {
     return localizedString(
       key: "activity.friend_backed_project_name_by_creator_name",
       defaultValue: "<b>%{friend_name} backed</b> %{project_name} by %{creator_name}",
@@ -3985,7 +4447,7 @@ catch your eye?"
    - **fr**: "%{friend_name} a soutenu un projet d'édition."
    - **en**: "%{friend_name} backed a Publishing project."
   */
-  public static func activity_friend_backed_publishing_project(friend_name friend_name: String) -> String {
+  public static func activity_friend_backed_publishing_project(friend_name: String) -> String {
     return localizedString(
       key: "activity.friend_backed_publishing_project",
       defaultValue: "%{friend_name} backed a Publishing project.",
@@ -4001,7 +4463,7 @@ catch your eye?"
    - **fr**: "%{friend_name} a soutenu un projet de technologie."
    - **en**: "%{friend_name} backed a Technology project."
   */
-  public static func activity_friend_backed_tech_project(friend_name friend_name: String) -> String {
+  public static func activity_friend_backed_tech_project(friend_name: String) -> String {
     return localizedString(
       key: "activity.friend_backed_tech_project",
       defaultValue: "%{friend_name} backed a Technology project.",
@@ -4017,7 +4479,7 @@ catch your eye?"
    - **fr**: "%{friend_name} a soutenu un projet de théâtre."
    - **en**: "%{friend_name} backed a Theater project."
   */
-  public static func activity_friend_backed_theater_project(friend_name friend_name: String) -> String {
+  public static func activity_friend_backed_theater_project(friend_name: String) -> String {
     return localizedString(
       key: "activity.friend_backed_theater_project",
       defaultValue: "%{friend_name} backed a Theater project.",
@@ -4113,7 +4575,7 @@ catch your eye?"
    - **fr**: "Actu no. %{update_number} publiée : %{update_title}"
    - **en**: "Posted update #%{update_number}: %{update_title}"
   */
-  public static func activity_posted_update_number_title(update_number update_number: String, update_title: String) -> String {
+  public static func activity_posted_update_number_title(update_number: String, update_title: String) -> String {
     return localizedString(
       key: "activity.posted_update_number_title",
       defaultValue: "Posted update #%{update_number}: %{update_title}",
@@ -4129,7 +4591,7 @@ catch your eye?"
    - **fr**: "%{project_name} par %{creator_name}"
    - **en**: "%{project_name} by %{creator_name}"
   */
-  public static func activity_project_name_by_creator_name(project_name project_name: String, creator_name: String) -> String {
+  public static func activity_project_name_by_creator_name(project_name: String, creator_name: String) -> String {
     return localizedString(
       key: "activity.project_name_by_creator_name",
       defaultValue: "%{project_name} by %{creator_name}",
@@ -4145,7 +4607,7 @@ catch your eye?"
    - **fr**: "%{creator_name} a lancé un projet : %{project_name}"
    - **en**: "%{creator_name} launched a project: %{project_name}"
   */
-  public static func activity_project_state_change_creator_launched_a_project(creator_name creator_name: String, project_name: String) -> String {
+  public static func activity_project_state_change_creator_launched_a_project(creator_name: String, project_name: String) -> String {
     return localizedString(
       key: "activity.project_state_change.creator_launched_a_project",
       defaultValue: "%{creator_name} launched a project: %{project_name}",
@@ -4209,7 +4671,7 @@ catch your eye?"
    - **fr**: "sur %{goal}"
    - **en**: "pledged of %{goal}"
   */
-  public static func activity_project_state_change_pledged_of_goal(goal goal: String) -> String {
+  public static func activity_project_state_change_pledged_of_goal(goal: String) -> String {
     return localizedString(
       key: "activity.project_state_change.pledged_of_goal",
       defaultValue: "pledged of %{goal}",
@@ -4225,7 +4687,7 @@ catch your eye?"
    - **fr**: "%{project_name} a été annulé par son créateur."
    - **en**: "%{project_name} was cancelled by the creator."
   */
-  public static func activity_project_state_change_project_was_cancelled_by_creator(project_name project_name: String) -> String {
+  public static func activity_project_state_change_project_was_cancelled_by_creator(project_name: String) -> String {
     return localizedString(
       key: "activity.project_state_change.project_was_cancelled_by_creator",
       defaultValue: "%{project_name} was cancelled by the creator.",
@@ -4241,7 +4703,7 @@ catch your eye?"
    - **fr**: "%{project_name} n'a pas été intégralement financé."
    - **en**: "%{project_name} was not successfully funded."
   */
-  public static func activity_project_state_change_project_was_not_successfully_funded(project_name project_name: String) -> String {
+  public static func activity_project_state_change_project_was_not_successfully_funded(project_name: String) -> String {
     return localizedString(
       key: "activity.project_state_change.project_was_not_successfully_funded",
       defaultValue: "%{project_name} was not successfully funded.",
@@ -4257,7 +4719,7 @@ catch your eye?"
    - **fr**: "%{project_name} a été intégralement financé !"
    - **en**: "%{project_name} was successfully funded!"
   */
-  public static func activity_project_state_change_project_was_successfully_funded(project_name project_name: String) -> String {
+  public static func activity_project_state_change_project_was_successfully_funded(project_name: String) -> String {
     return localizedString(
       key: "activity.project_state_change.project_was_successfully_funded",
       defaultValue: "%{project_name} was successfully funded!",
@@ -4273,7 +4735,7 @@ catch your eye?"
    - **fr**: "%{project_name} a été suspendu."
    - **en**: "%{project_name} was suspended."
   */
-  public static func activity_project_state_change_project_was_suspended(project_name project_name: String) -> String {
+  public static func activity_project_state_change_project_was_suspended(project_name: String) -> String {
     return localizedString(
       key: "activity.project_state_change.project_was_suspended",
       defaultValue: "%{project_name} was suspended.",
@@ -4289,7 +4751,7 @@ catch your eye?"
    - **fr**: "Vous avez lancé un projet : %{project_name}"
    - **en**: "You launched a project: %{project_name}"
   */
-  public static func activity_project_state_change_you_launched_a_project(project_name project_name: String) -> String {
+  public static func activity_project_state_change_you_launched_a_project(project_name: String) -> String {
     return localizedString(
       key: "activity.project_state_change.you_launched_a_project",
       defaultValue: "You launched a project: %{project_name}",
@@ -4305,7 +4767,7 @@ catch your eye?"
    - **fr**: "Actu no. %{update_count}"
    - **en**: "Update #%{update_count}"
   */
-  public static func activity_project_update_update_count(update_count update_count: String) -> String {
+  public static func activity_project_update_update_count(update_count: String) -> String {
     return localizedString(
       key: "activity.project_update.update_count",
       defaultValue: "Update #%{update_count}",
@@ -4321,7 +4783,7 @@ catch your eye?"
    - **fr**: "No. %{update_count} – Contributeurs seulement"
    - **en**: "#%{update_count} – Backer only"
   */
-  public static func activity_project_update_update_count_backer_only(update_count update_count: String) -> String {
+  public static func activity_project_update_update_count_backer_only(update_count: String) -> String {
     return localizedString(
       key: "activity.project_update.update_count_backer_only",
       defaultValue: "#%{update_count} – Backer only",
@@ -4369,7 +4831,7 @@ catch your eye?"
    - **fr**: "%{user_name} vous suit !"
    - **en**: "%{user_name} is now following you!"
   */
-  public static func activity_user_name_is_now_following_you(user_name user_name: String) -> String {
+  public static func activity_user_name_is_now_following_you(user_name: String) -> String {
     return localizedString(
       key: "activity.user_name_is_now_following_you",
       defaultValue: "%{user_name} is now following you!",
@@ -4385,7 +4847,7 @@ catch your eye?"
    - **fr**: "%{user_name} a lancé un projet."
    - **en**: "%{user_name} launched a project."
   */
-  public static func activity_user_name_launched_project(user_name user_name: String) -> String {
+  public static func activity_user_name_launched_project(user_name: String) -> String {
     return localizedString(
       key: "activity.user_name_launched_project",
       defaultValue: "%{user_name} launched a project.",
@@ -4401,7 +4863,7 @@ catch your eye?"
    - **fr**: "Contributeur no. %{backer_number}"
    - **en**: "Backer #%{backer_number}"
   */
-  public static func backer_modal_backer_number(backer_number backer_number: String) -> String {
+  public static func backer_modal_backer_number(backer_number: String) -> String {
     return localizedString(
       key: "backer_modal.backer_number",
       defaultValue: "Backer #%{backer_number}",
@@ -4481,7 +4943,7 @@ catch your eye?"
    - **fr**: "%{pledge_amount} le %{pledge_date}"
    - **en**: "%{pledge_amount} on %{pledge_date}"
   */
-  public static func backer_modal_pledge_amount_on_pledge_date(pledge_amount pledge_amount: String, pledge_date: String) -> String {
+  public static func backer_modal_pledge_amount_on_pledge_date(pledge_amount: String, pledge_date: String) -> String {
     return localizedString(
       key: "backer_modal.pledge_amount_on_pledge_date",
       defaultValue: "%{pledge_amount} on %{pledge_date}",
@@ -4513,7 +4975,7 @@ catch your eye?"
    - **fr**: "%{reward_amount} - %{reward_description}"
    - **en**: "%{reward_amount} - %{reward_description}"
   */
-  public static func backer_modal_reward_amount_reward_description(reward_amount reward_amount: String, reward_description: String) -> String {
+  public static func backer_modal_reward_amount_reward_description(reward_amount: String, reward_description: String) -> String {
     return localizedString(
       key: "backer_modal.reward_amount_reward_description",
       defaultValue: "%{reward_amount} - %{reward_description}",
@@ -4593,7 +5055,7 @@ catch your eye?"
    - **fr**: "Statut : %{backing_status}"
    - **en**: "Status: %{backing_status}"
   */
-  public static func backer_modal_status_backing_status(backing_status backing_status: String) -> String {
+  public static func backer_modal_status_backing_status(backing_status: String) -> String {
     return localizedString(
       key: "backer_modal.status_backing_status",
       defaultValue: "Status: %{backing_status}",
@@ -4625,7 +5087,7 @@ catch your eye?"
    - **fr**: "Livraison prévue le %{delivery_date}"
    - **en**: "Estimated delivery %{delivery_date}"
   */
-  public static func backing_info_estimated_delivery_date(delivery_date delivery_date: String) -> String {
+  public static func backing_info_estimated_delivery_date(delivery_date: String) -> String {
     return localizedString(
       key: "backing_info.estimated_delivery_date",
       defaultValue: "Estimated delivery %{delivery_date}",
@@ -4657,7 +5119,7 @@ catch your eye?"
    - **fr**: "Montant engagé : %{backing_amount}"
    - **en**: "Pledged: %{backing_amount}"
   */
-  public static func backing_info_pledged_backing_amount(backing_amount backing_amount: String) -> String {
+  public static func backing_info_pledged_backing_amount(backing_amount: String) -> String {
     return localizedString(
       key: "backing_info.pledged_backing_amount",
       defaultValue: "Pledged: %{backing_amount}",
@@ -4673,7 +5135,7 @@ catch your eye?"
    - **fr**: "Découvrir la catégorie %{category_name}"
    - **en**: "Explore %{category_name}"
   */
-  public static func category_promo_explore_category(category_name category_name: String) -> String {
+  public static func category_promo_explore_category(category_name: String) -> String {
     return localizedString(
       key: "category_promo.explore_category",
       defaultValue: "Explore %{category_name}",
@@ -4689,7 +5151,7 @@ catch your eye?"
    - **fr**: "%{project_count} projets actifs"
    - **en**: "%{project_count} live projects"
   */
-  public static func category_promo_project_count_live_projects(project_count project_count: String) -> String {
+  public static func category_promo_project_count_live_projects(project_count: String) -> String {
     return localizedString(
       key: "category_promo.project_count_live_projects",
       defaultValue: "%{project_count} live projects",
@@ -4705,7 +5167,7 @@ catch your eye?"
    - **fr**: "%{comments_count} commentaires"
    - **en**: "%{comments_count} comments"
   */
-  public static func comments_count_comments(comments_count comments_count: Int) -> String {
+  public static func comments_count_comments(comments_count: Int) -> String {
     return localizedString(
       key: "comments_count_comments",
       defaultValue: "%{comments_count} comments",
@@ -4721,7 +5183,7 @@ catch your eye?"
    - **fr**: "Plus que %{days_to_go} · Financé à %{percent_funded}"
    - **en**: "%{days_to_go} to go · %{percent_funded} funded"
   */
-  public static func creator_project_preview_subtitle_days_to_go_percent_funded(days_to_go days_to_go: String, percent_funded: String) -> String {
+  public static func creator_project_preview_subtitle_days_to_go_percent_funded(days_to_go: String, percent_funded: String) -> String {
     return localizedString(
       key: "creator_project_preview.subtitle.days_to_go_percent_funded",
       defaultValue: "%{days_to_go} to go · %{percent_funded} funded",
@@ -4737,7 +5199,7 @@ catch your eye?"
    - **fr**: "Financé le %{deadline}"
    - **en**: "Funded on %{deadline}"
   */
-  public static func creator_project_preview_subtitle_funded_on_deadline(deadline deadline: String) -> String {
+  public static func creator_project_preview_subtitle_funded_on_deadline(deadline: String) -> String {
     return localizedString(
       key: "creator_project_preview.subtitle.funded_on_deadline",
       defaultValue: "Funded on %{deadline}",
@@ -4769,7 +5231,7 @@ catch your eye?"
    - **fr**: "L'objectif de financement n'a pas été atteint avant le %{deadline}"
    - **en**: "Funding unsuccessful on %{deadline}"
   */
-  public static func creator_project_preview_subtitle_funding_unsuccessful_on_deadline(deadline deadline: String) -> String {
+  public static func creator_project_preview_subtitle_funding_unsuccessful_on_deadline(deadline: String) -> String {
     return localizedString(
       key: "creator_project_preview.subtitle.funding_unsuccessful_on_deadline",
       defaultValue: "Funding unsuccessful on %{deadline}",
@@ -4865,7 +5327,7 @@ catch your eye?"
    - **fr**: "<b>%{project_name}</b> lancé le %{launch_date} avec un objectif de <b>%{goal}</b>"
    - **en**: "<b>%{project_name}</b> launched on %{launch_date} with a goal of raising <b>%{goal}</b>"
   */
-  public static func dashboard_activity_project_name_launched(project_name project_name: String, launch_date: String, goal: String) -> String {
+  public static func dashboard_activity_project_name_launched(project_name: String, launch_date: String, goal: String) -> String {
     return localizedString(
       key: "dashboard.activity.project_name_launched",
       defaultValue: "<b>%{project_name}</b> launched on %{launch_date} with a goal of raising <b>%{goal}</b>",
@@ -4881,7 +5343,7 @@ catch your eye?"
    - **fr**: "<b>%{project_name}</b> a été annulé le %{cancellation_date}"
    - **en**: "<b>%{project_name}</b> was canceled on %{cancellation_date}"
   */
-  public static func dashboard_activity_project_name_was_canceled(project_name project_name: String, cancellation_date: String) -> String {
+  public static func dashboard_activity_project_name_was_canceled(project_name: String, cancellation_date: String) -> String {
     return localizedString(
       key: "dashboard.activity.project_name_was_canceled",
       defaultValue: "<b>%{project_name}</b> was canceled on %{cancellation_date}",
@@ -4897,7 +5359,7 @@ catch your eye?"
    - **fr**: "<b>%{project_name}</b> a été suspendu le %{suspension_date}"
    - **en**: "<b>%{project_name}</b> was suspended on %{suspension_date}"
   */
-  public static func dashboard_activity_project_name_was_suspended(project_name project_name: String, suspension_date: String) -> String {
+  public static func dashboard_activity_project_name_was_suspended(project_name: String, suspension_date: String) -> String {
     return localizedString(
       key: "dashboard.activity.project_name_was_suspended",
       defaultValue: "<b>%{project_name}</b> was suspended on %{suspension_date}",
@@ -4913,7 +5375,7 @@ catch your eye?"
    - **fr**: "<b>%{project_name}</b> n'a pas atteint son objectif de financement avant le %{unsuccessful_date}"
    - **en**: "<b>%{project_name}</b> was unsuccessful on %{unsuccessful_date}"
   */
-  public static func dashboard_activity_project_name_was_unsuccessful(project_name project_name: String, unsuccessful_date: String) -> String {
+  public static func dashboard_activity_project_name_was_unsuccessful(project_name: String, unsuccessful_date: String) -> String {
     return localizedString(
       key: "dashboard.activity.project_name_was_unsuccessful",
       defaultValue: "<b>%{project_name}</b> was unsuccessful on %{unsuccessful_date}",
@@ -4945,7 +5407,7 @@ catch your eye?"
    - **fr**: "<b>Récompense :<b> %{reward_name}"
    - **en**: "<b>Reward:</b> %{reward_name}"
   */
-  public static func dashboard_activity_reward_name(reward_name reward_name: String) -> String {
+  public static func dashboard_activity_reward_name(reward_name: String) -> String {
     return localizedString(
       key: "dashboard.activity.reward_name",
       defaultValue: "<b>Reward:</b> %{reward_name}",
@@ -4977,7 +5439,7 @@ catch your eye?"
    - **fr**: "Financement de <b>%{pledged}</b> réussi le %{deadline} grâce à <b>%{backers}</b>"
    - **en**: "Successfully raised <b>%{pledged}</b> with <b>%{backers}</b> on %{deadline}"
   */
-  public static func dashboard_activity_successfully_raised_pledged(pledged pledged: String, backers: String, deadline: String) -> String {
+  public static func dashboard_activity_successfully_raised_pledged(pledged: String, backers: String, deadline: String) -> String {
     return localizedString(
       key: "dashboard.activity.successfully_raised_pledged",
       defaultValue: "Successfully raised <b>%{pledged}</b> with <b>%{backers}</b> on %{deadline}",
@@ -4993,7 +5455,7 @@ catch your eye?"
    - **fr**: "<b>Actu no.%{space}%{update_number}</b> publiée il y a %{time_count_days_ago}"
    - **en**: "<b>Update%{space}#%{update_number}</b> posted %{time_count_days_ago}"
   */
-  public static func dashboard_activity_update_number_posted_time_count_days_ago(space space: String, update_number: String, time_count_days_ago: String) -> String {
+  public static func dashboard_activity_update_number_posted_time_count_days_ago(space: String, update_number: String, time_count_days_ago: String) -> String {
     return localizedString(
       key: "dashboard.activity.update_number_posted_time_count_days_ago",
       defaultValue: "<b>Update%{space}#%{update_number}</b> posted %{time_count_days_ago}",
@@ -5009,7 +5471,7 @@ catch your eye?"
    - **fr**: "<b>%{user_name}</b> a ajusté son engagement"
    - **en**: "<b>%{user_name}</b> adjusted their pledge"
   */
-  public static func dashboard_activity_user_name_adjusted_their_pledge(user_name user_name: String) -> String {
+  public static func dashboard_activity_user_name_adjusted_their_pledge(user_name: String) -> String {
     return localizedString(
       key: "dashboard.activity.user_name_adjusted_their_pledge",
       defaultValue: "<b>%{user_name}</b> adjusted their pledge",
@@ -5025,7 +5487,7 @@ catch your eye?"
    - **fr**: "<b>%{user_name}</b> a annulé son engagement"
    - **en**: "<b>%{user_name}</b> canceled their pledge"
   */
-  public static func dashboard_activity_user_name_canceled_their_pledge(user_name user_name: String) -> String {
+  public static func dashboard_activity_user_name_canceled_their_pledge(user_name: String) -> String {
     return localizedString(
       key: "dashboard.activity.user_name_canceled_their_pledge",
       defaultValue: "<b>%{user_name}</b> canceled their pledge",
@@ -5041,7 +5503,7 @@ catch your eye?"
    - **fr**: "<b>%{user_name}</b> a changé de récompense"
    - **en**: "<b>%{user_name}</b> changed their reward"
   */
-  public static func dashboard_activity_user_name_changed_their_reward(user_name user_name: String) -> String {
+  public static func dashboard_activity_user_name_changed_their_reward(user_name: String) -> String {
     return localizedString(
       key: "dashboard.activity.user_name_changed_their_reward",
       defaultValue: "<b>%{user_name}</b> changed their reward",
@@ -5057,7 +5519,7 @@ catch your eye?"
    - **fr**: "<b>%{user_name}</b> a commenté l'Actu no. %{update_number}"
    - **en**: "<b>%{user_name}</b> commented on <b>Update%{space}#%{update_number}</b>"
   */
-  public static func dashboard_activity_user_name_commented_on_update_number(user_name user_name: String, space: String, update_number: String) -> String {
+  public static func dashboard_activity_user_name_commented_on_update_number(user_name: String, space: String, update_number: String) -> String {
     return localizedString(
       key: "dashboard.activity.user_name_commented_on_update_number",
       defaultValue: "<b>%{user_name}</b> commented on <b>Update%{space}#%{update_number}</b>",
@@ -5073,7 +5535,7 @@ catch your eye?"
    - **fr**: "<b>%{user_name}</b> a commenté votre projet"
    - **en**: "<b>%{user_name}</b> commented on your project"
   */
-  public static func dashboard_activity_user_name_commented_on_your_project(user_name user_name: String) -> String {
+  public static func dashboard_activity_user_name_commented_on_your_project(user_name: String) -> String {
     return localizedString(
       key: "dashboard.activity.user_name_commented_on_your_project",
       defaultValue: "<b>%{user_name}</b> commented on your project",
@@ -5089,7 +5551,7 @@ catch your eye?"
    - **fr**: "<b>%{user_name}</b> s'est engagé(e)"
    - **en**: "<b>%{user_name}</b> pledged"
   */
-  public static func dashboard_activity_user_name_pledged(user_name user_name: String) -> String {
+  public static func dashboard_activity_user_name_pledged(user_name: String) -> String {
     return localizedString(
       key: "dashboard.activity.user_name_pledged",
       defaultValue: "<b>%{user_name}</b> pledged",
@@ -5153,7 +5615,7 @@ catch your eye?"
    - **fr**: "<b>Vous</b> avez commenté l'Actu no. %{update_number}"
    - **en**: "<b>You</b> commented on <b>Update%{space}#%{update_number}</b>"
   */
-  public static func dashboard_activity_you_commented_on_update_number(space space: String, update_number: String) -> String {
+  public static func dashboard_activity_you_commented_on_update_number(space: String, update_number: String) -> String {
     return localizedString(
       key: "dashboard.activity.you_commented_on_update_number",
       defaultValue: "<b>You</b> commented on <b>Update%{space}#%{update_number}</b>",
@@ -5281,7 +5743,7 @@ catch your eye?"
    - **fr**: "Financé le %{deadline}"
    - **en**: "Funded on %{deadline}"
   */
-  public static func dashboard_creator_project_funded_on_deadline(deadline deadline: String) -> String {
+  public static func dashboard_creator_project_funded_on_deadline(deadline: String) -> String {
     return localizedString(
       key: "dashboard.creator_project.funded_on_deadline",
       defaultValue: "Funded on %{deadline}",
@@ -5361,7 +5823,7 @@ catch your eye?"
    - **fr**: "%{pledged} engagés sur %{goal}, %{backers_count} contributeurs pour le moment, plus que %{time_left}"
    - **en**: "%{pledged} of %{goal} goal, %{backers_count} backers so far, %{time_left} to go"
   */
-  public static func dashboard_graphs_funding_accessibility_live_stat_value(pledged pledged: String, goal: String, backers_count: Int, time_left: String) -> String {
+  public static func dashboard_graphs_funding_accessibility_live_stat_value(pledged: String, goal: String, backers_count: Int, time_left: String) -> String {
     return localizedString(
       key: "dashboard.graphs.funding.accessibility.live_stat_value",
       defaultValue: "%{pledged} of %{goal} goal, %{backers_count} backers so far, %{time_left} to go",
@@ -5377,7 +5839,7 @@ catch your eye?"
    - **fr**: "%{pledged} engagés sur %{goal}, %{backers_count} contributeurs, plus que %{time_left}"
    - **en**: "%{pledged} of %{goal} goal, %{backers_count} backers total, %{time_left} to go"
   */
-  public static func dashboard_graphs_funding_accessibility_non_live_stat_value(pledged pledged: String, goal: String, backers_count: Int, time_left: String) -> String {
+  public static func dashboard_graphs_funding_accessibility_non_live_stat_value(pledged: String, goal: String, backers_count: Int, time_left: String) -> String {
     return localizedString(
       key: "dashboard.graphs.funding.accessibility.non_live_stat_value",
       defaultValue: "%{pledged} of %{goal} goal, %{backers_count} backers total, %{time_left} to go",
@@ -5585,7 +6047,7 @@ catch your eye?"
    - **fr**: "%{percent_external} de sources externes"
    - **en**: "%{percent_external} External"
   */
-  public static func dashboard_graphs_referrers_percent_external(percent_external percent_external: String) -> String {
+  public static func dashboard_graphs_referrers_percent_external(percent_external: String) -> String {
     return localizedString(
       key: "dashboard.graphs.referrers.percent_external",
       defaultValue: "%{percent_external} External",
@@ -5601,7 +6063,7 @@ catch your eye?"
    - **fr**: "%{percent_kickstarter} via Kickstarter"
    - **en**: "%{percent_kickstarter} Kickstarter"
   */
-  public static func dashboard_graphs_referrers_percent_kickstarter(percent_kickstarter percent_kickstarter: String) -> String {
+  public static func dashboard_graphs_referrers_percent_kickstarter(percent_kickstarter: String) -> String {
     return localizedString(
       key: "dashboard.graphs.referrers.percent_kickstarter",
       defaultValue: "%{percent_kickstarter} Kickstarter",
@@ -5905,7 +6367,7 @@ catch your eye?"
    - **fr**: "%{external_start_count} en externe"
    - **en**: "%{external_start_count} off-site"
   */
-  public static func dashboard_graphs_video_stats_external_start_count_off_site(external_start_count external_start_count: String) -> String {
+  public static func dashboard_graphs_video_stats_external_start_count_off_site(external_start_count: String) -> String {
     return localizedString(
       key: "dashboard.graphs.video.stats.external_start_count_off_site",
       defaultValue: "%{external_start_count} off-site",
@@ -5921,7 +6383,7 @@ catch your eye?"
    - **fr**: "%{internal_start_count} sur Kickstarter"
    - **en**: "%{internal_start_count} on Kickstarter"
   */
-  public static func dashboard_graphs_video_stats_internal_start_count_on_kickstarter(internal_start_count internal_start_count: String) -> String {
+  public static func dashboard_graphs_video_stats_internal_start_count_on_kickstarter(internal_start_count: String) -> String {
     return localizedString(
       key: "dashboard.graphs.video.stats.internal_start_count_on_kickstarter",
       defaultValue: "%{internal_start_count} on Kickstarter",
@@ -5969,7 +6431,7 @@ catch your eye?"
    - **fr**: "%{percent_plays_completed} des personnes qui ont vu la vidéo l'ont regardée jusqu'à la fin"
    - **en**: "%{percent_plays_completed} of plays completed"
   */
-  public static func dashboard_graphs_video_stats_percent_plays_completed(percent_plays_completed percent_plays_completed: String) -> String {
+  public static func dashboard_graphs_video_stats_percent_plays_completed(percent_plays_completed: String) -> String {
     return localizedString(
       key: "dashboard.graphs.video.stats.percent_plays_completed",
       defaultValue: "%{percent_plays_completed} of plays completed",
@@ -5985,7 +6447,7 @@ catch your eye?"
    - **fr**: "%{total_start_count} vues"
    - **en**: "%{total_start_count} plays"
   */
-  public static func dashboard_graphs_video_stats_total_plays(total_start_count total_start_count: String) -> String {
+  public static func dashboard_graphs_video_stats_total_plays(total_start_count: String) -> String {
     return localizedString(
       key: "dashboard.graphs.video.stats.total_plays",
       defaultValue: "%{total_start_count} plays",
@@ -6001,7 +6463,7 @@ catch your eye?"
    - **fr**: "<b>%{total_start_count}</b> lectures (total)"
    - **en**: "<b>%{total_start_count}</b> total plays"
   */
-  public static func dashboard_graphs_video_stats_total_plays_count(total_start_count total_start_count: Int) -> String {
+  public static func dashboard_graphs_video_stats_total_plays_count(total_start_count: Int) -> String {
     return localizedString(
       key: "dashboard.graphs.video.stats.total_plays_count",
       defaultValue: "<b>%{total_start_count}</b> total plays",
@@ -6236,7 +6698,7 @@ catch your eye?"
   /**
    "Choose from camera roll"
 
-   - **es**: "Elegir del archivo de cámera"
+   - **es**: "Elegir del archivo de cámara"
    - **de**: "Aus Camera Roll auswählen"
    - **fr**: "Choisir à partir de l'album photo"
    - **en**: "Choose from camera roll"
@@ -6417,7 +6879,7 @@ catch your eye?"
    - **fr**: "Actu no. %{update_number}"
    - **en**: "Update #%{update_number}"
   */
-  public static func dashboard_post_update_compose_update_number(update_number update_number: String) -> String {
+  public static func dashboard_post_update_compose_update_number(update_number: String) -> String {
     return localizedString(
       key: "dashboard.post_update.compose.update_number",
       defaultValue: "Update #%{update_number}",
@@ -6481,7 +6943,7 @@ catch your eye?"
    - **fr**: "%{backer_count} contributeurs seront prévenus qu'une nouvelle actu est disponible. Publier quand-même ?"
    - **en**: "This will notify %{backer_count} backers that a new update is available. Are you sure you want to post?"
   */
-  public static func dashboard_post_update_preview_confirmation_alert_this_will_notify_backers_that_a_new_update_is_available(backer_count backer_count: Int) -> String {
+  public static func dashboard_post_update_preview_confirmation_alert_this_will_notify_backers_that_a_new_update_is_available(backer_count: Int) -> String {
     return localizedString(
       key: "dashboard.post_update.preview.confirmation_alert.this_will_notify_backers_that_a_new_update_is_available",
       defaultValue: "This will notify %{backer_count} backers that a new update is available. Are you sure you want to post?",
@@ -6545,7 +7007,7 @@ catch your eye?"
    - **fr**: "Dernière actu le %{date}."
    - **en**: "Last updated on %{date}."
   */
-  public static func dashboard_post_update_button_subtitle_last_updated_on_date(date date: String) -> String {
+  public static func dashboard_post_update_button_subtitle_last_updated_on_date(date: String) -> String {
     return localizedString(
       key: "dashboard.post_update_button.subtitle.last_updated_on_date",
       defaultValue: "Last updated on %{date}.",
@@ -6561,7 +7023,7 @@ catch your eye?"
    - **fr**: "Dernière actu le %{date} (%{relative_date})."
    - **en**: "Last updated on %{date} (%{relative_date})."
   */
-  public static func dashboard_post_update_button_subtitle_last_updated_on_date_relative_date(date date: String, relative_date: String) -> String {
+  public static func dashboard_post_update_button_subtitle_last_updated_on_date_relative_date(date: String, relative_date: String) -> String {
     return localizedString(
       key: "dashboard.post_update_button.subtitle.last_updated_on_date_relative_date",
       defaultValue: "Last updated on %{date} (%{relative_date}).",
@@ -6625,7 +7087,7 @@ catch your eye?"
    - **fr**: "Projet no. %{current_project_index}"
    - **en**: "Project #%{current_project_index}"
   */
-  public static func dashboard_switcher_project_number(current_project_index current_project_index: String) -> String {
+  public static func dashboard_switcher_project_number(current_project_index: String) -> String {
     return localizedString(
       key: "dashboard.switcher.project_number",
       defaultValue: "Project #%{current_project_index}",
@@ -6737,7 +7199,7 @@ catch your eye?"
    - **fr**: "%{time_count} jours"
    - **en**: "%{time_count} days"
   */
-  public static func dates_time_days(time_count time_count: Int) -> String {
+  public static func dates_time_days(time_count: Int) -> String {
     return localizedString(
       key: "dates.time_days",
       defaultValue: "%{time_count} days",
@@ -6753,7 +7215,7 @@ catch your eye?"
    - **fr**: "%{time_count} jours"
    - **en**: "%{time_count} days"
   */
-  public static func dates_time_days_abbreviated(time_count time_count: Int) -> String {
+  public static func dates_time_days_abbreviated(time_count: Int) -> String {
     return localizedString(
       key: "dates.time_days_abbreviated",
       defaultValue: "%{time_count} days",
@@ -6769,7 +7231,7 @@ catch your eye?"
    - **fr**: "il y a %{time_count} jours"
    - **en**: "%{time_count} days ago"
   */
-  public static func dates_time_days_ago(time_count time_count: Int) -> String {
+  public static func dates_time_days_ago(time_count: Int) -> String {
     return localizedString(
       key: "dates.time_days_ago",
       defaultValue: "%{time_count} days ago",
@@ -6785,7 +7247,7 @@ catch your eye?"
    - **fr**: "il y a %{time_count} jours"
    - **en**: "%{time_count} days ago"
   */
-  public static func dates_time_days_ago_abbreviated(time_count time_count: Int) -> String {
+  public static func dates_time_days_ago_abbreviated(time_count: Int) -> String {
     return localizedString(
       key: "dates.time_days_ago_abbreviated",
       defaultValue: "%{time_count} days ago",
@@ -6801,7 +7263,7 @@ catch your eye?"
    - **fr**: "%{time_count} heures"
    - **en**: "%{time_count} hours"
   */
-  public static func dates_time_hours(time_count time_count: Int) -> String {
+  public static func dates_time_hours(time_count: Int) -> String {
     return localizedString(
       key: "dates.time_hours",
       defaultValue: "%{time_count} hours",
@@ -6817,7 +7279,7 @@ catch your eye?"
    - **fr**: "%{time_count} h"
    - **en**: "%{time_count} hrs"
   */
-  public static func dates_time_hours_abbreviated(time_count time_count: Int) -> String {
+  public static func dates_time_hours_abbreviated(time_count: Int) -> String {
     return localizedString(
       key: "dates.time_hours_abbreviated",
       defaultValue: "%{time_count} hrs",
@@ -6833,7 +7295,7 @@ catch your eye?"
    - **fr**: "il y a %{time_count} heures"
    - **en**: "%{time_count} hours ago"
   */
-  public static func dates_time_hours_ago(time_count time_count: Int) -> String {
+  public static func dates_time_hours_ago(time_count: Int) -> String {
     return localizedString(
       key: "dates.time_hours_ago",
       defaultValue: "%{time_count} hours ago",
@@ -6849,7 +7311,7 @@ catch your eye?"
    - **fr**: "il y a %{time_count} h"
    - **en**: "%{time_count} hrs ago"
   */
-  public static func dates_time_hours_ago_abbreviated(time_count time_count: Int) -> String {
+  public static func dates_time_hours_ago_abbreviated(time_count: Int) -> String {
     return localizedString(
       key: "dates.time_hours_ago_abbreviated",
       defaultValue: "%{time_count} hrs ago",
@@ -6865,7 +7327,7 @@ catch your eye?"
    - **fr**: "dans %{time_count} jours"
    - **en**: "in %{time_count} days"
   */
-  public static func dates_time_in_days(time_count time_count: Int) -> String {
+  public static func dates_time_in_days(time_count: Int) -> String {
     return localizedString(
       key: "dates.time_in_days",
       defaultValue: "in %{time_count} days",
@@ -6881,7 +7343,7 @@ catch your eye?"
    - **fr**: "dans %{time_count} jours"
    - **en**: "in %{time_count} days"
   */
-  public static func dates_time_in_days_abbreviated(time_count time_count: Int) -> String {
+  public static func dates_time_in_days_abbreviated(time_count: Int) -> String {
     return localizedString(
       key: "dates.time_in_days_abbreviated",
       defaultValue: "in %{time_count} days",
@@ -6897,7 +7359,7 @@ catch your eye?"
    - **fr**: "dans %{time_count} heures"
    - **en**: "in %{time_count} hours"
   */
-  public static func dates_time_in_hours(time_count time_count: Int) -> String {
+  public static func dates_time_in_hours(time_count: Int) -> String {
     return localizedString(
       key: "dates.time_in_hours",
       defaultValue: "in %{time_count} hours",
@@ -6913,7 +7375,7 @@ catch your eye?"
    - **fr**: "dans %{time_count} h"
    - **en**: "in %{time_count} hrs"
   */
-  public static func dates_time_in_hours_abbreviated(time_count time_count: Int) -> String {
+  public static func dates_time_in_hours_abbreviated(time_count: Int) -> String {
     return localizedString(
       key: "dates.time_in_hours_abbreviated",
       defaultValue: "in %{time_count} hrs",
@@ -6929,7 +7391,7 @@ catch your eye?"
    - **fr**: "dans %{time_count} minutes"
    - **en**: "in %{time_count} minutes"
   */
-  public static func dates_time_in_minutes(time_count time_count: Int) -> String {
+  public static func dates_time_in_minutes(time_count: Int) -> String {
     return localizedString(
       key: "dates.time_in_minutes",
       defaultValue: "in %{time_count} minutes",
@@ -6945,10 +7407,42 @@ catch your eye?"
    - **fr**: "dans %{time_count} min"
    - **en**: "in %{time_count} mins"
   */
-  public static func dates_time_in_minutes_abbreviated(time_count time_count: Int) -> String {
+  public static func dates_time_in_minutes_abbreviated(time_count: Int) -> String {
     return localizedString(
       key: "dates.time_in_minutes_abbreviated",
       defaultValue: "in %{time_count} mins",
+      count: time_count,
+      substitutions: ["time_count": Format.wholeNumber(time_count)]
+    )
+  }
+  /**
+   "in "%{time_count} seconds""
+
+   - **es**: "in "%{time_count} seconds""
+   - **de**: "in "%{time_count} seconds""
+   - **fr**: "dans %{time_count} secondes"
+   - **en**: "in "%{time_count} seconds""
+  */
+  public static func dates_time_in_seconds(time_count: Int) -> String {
+    return localizedString(
+      key: "dates.time_in_seconds",
+      defaultValue: "in \"%{time_count} seconds\"",
+      count: time_count,
+      substitutions: ["time_count": Format.wholeNumber(time_count)]
+    )
+  }
+  /**
+   "in "%{time_count} secs""
+
+   - **es**: "in "%{time_count} secs""
+   - **de**: "in "%{time_count} secs""
+   - **fr**: "dans %{time_count} s"
+   - **en**: "in "%{time_count} secs""
+  */
+  public static func dates_time_in_seconds_abbreviated(time_count: Int) -> String {
+    return localizedString(
+      key: "dates.time_in_seconds_abbreviated",
+      defaultValue: "in \"%{time_count} secs\"",
       count: time_count,
       substitutions: ["time_count": Format.wholeNumber(time_count)]
     )
@@ -6961,7 +7455,7 @@ catch your eye?"
    - **fr**: "%{time_count} minutes"
    - **en**: "%{time_count} minutes"
   */
-  public static func dates_time_minutes(time_count time_count: Int) -> String {
+  public static func dates_time_minutes(time_count: Int) -> String {
     return localizedString(
       key: "dates.time_minutes",
       defaultValue: "%{time_count} minutes",
@@ -6977,7 +7471,7 @@ catch your eye?"
    - **fr**: "%{time_count} min"
    - **en**: "%{time_count} mins"
   */
-  public static func dates_time_minutes_abbreviated(time_count time_count: Int) -> String {
+  public static func dates_time_minutes_abbreviated(time_count: Int) -> String {
     return localizedString(
       key: "dates.time_minutes_abbreviated",
       defaultValue: "%{time_count} mins",
@@ -6993,7 +7487,7 @@ catch your eye?"
    - **fr**: "il y a %{time_count} minutes"
    - **en**: "%{time_count} minutes ago"
   */
-  public static func dates_time_minutes_ago(time_count time_count: Int) -> String {
+  public static func dates_time_minutes_ago(time_count: Int) -> String {
     return localizedString(
       key: "dates.time_minutes_ago",
       defaultValue: "%{time_count} minutes ago",
@@ -7009,10 +7503,74 @@ catch your eye?"
    - **fr**: "il y a %{time_count} min"
    - **en**: "%{time_count} mins ago"
   */
-  public static func dates_time_minutes_ago_abbreviated(time_count time_count: Int) -> String {
+  public static func dates_time_minutes_ago_abbreviated(time_count: Int) -> String {
     return localizedString(
       key: "dates.time_minutes_ago_abbreviated",
       defaultValue: "%{time_count} mins ago",
+      count: time_count,
+      substitutions: ["time_count": Format.wholeNumber(time_count)]
+    )
+  }
+  /**
+   "%{time_count} secs"
+
+   - **es**: "%{time_count} secs"
+   - **de**: "%{time_count} Sek"
+   - **fr**: "%{time_count} s"
+   - **en**: "%{time_count} secs"
+  */
+  public static func dates_time_seconds(time_count: Int) -> String {
+    return localizedString(
+      key: "dates.time_seconds",
+      defaultValue: "%{time_count} secs",
+      count: time_count,
+      substitutions: ["time_count": Format.wholeNumber(time_count)]
+    )
+  }
+  /**
+   "%{time_count} seconds"
+
+   - **es**: "%{time_count} seconds"
+   - **de**: "%{time_count} seconds"
+   - **fr**: "%{time_count} secondes"
+   - **en**: "%{time_count} seconds"
+  */
+  public static func dates_time_seconds_abbreviated(time_count: Int) -> String {
+    return localizedString(
+      key: "dates.time_seconds_abbreviated",
+      defaultValue: "%{time_count} seconds",
+      count: time_count,
+      substitutions: ["time_count": Format.wholeNumber(time_count)]
+    )
+  }
+  /**
+   "%{time_count} secs ago"
+
+   - **es**: "%{time_count} secs ago"
+   - **de**: "%{time_count} secs ago"
+   - **fr**: "il y a %{time_count} s"
+   - **en**: "%{time_count} secs ago"
+  */
+  public static func dates_time_seconds_ago(time_count: Int) -> String {
+    return localizedString(
+      key: "dates.time_seconds_ago",
+      defaultValue: "%{time_count} secs ago",
+      count: time_count,
+      substitutions: ["time_count": Format.wholeNumber(time_count)]
+    )
+  }
+  /**
+   "%{time_count} seconds ago"
+
+   - **es**: "%{time_count} seconds ago"
+   - **de**: "%{time_count} seconds ago"
+   - **fr**: "il y a %{time_count} secondes"
+   - **en**: "%{time_count} seconds ago"
+  */
+  public static func dates_time_seconds_ago_abbreviated(time_count: Int) -> String {
+    return localizedString(
+      key: "dates.time_seconds_ago_abbreviated",
+      defaultValue: "%{time_count} seconds ago",
       count: time_count,
       substitutions: ["time_count": Format.wholeNumber(time_count)]
     )
@@ -7057,7 +7615,7 @@ catch your eye?"
    - **fr**: "Trier par %{sort}"
    - **en**: "Sort by %{sort}"
   */
-  public static func discovery_accessibility_buttons_sort_label(sort sort: String) -> String {
+  public static func discovery_accessibility_buttons_sort_label(sort: String) -> String {
     return localizedString(
       key: "discovery.accessibility.buttons.sort_label",
       defaultValue: "Sort by %{sort}",
@@ -7169,7 +7727,7 @@ catch your eye?"
    - **fr**: "Suivre %{friend_name} ?"
    - **en**: "Follow %{friend_name}?"
   */
-  public static func discovery_activity_sample_alert_follow_friend_name(friend_name friend_name: String) -> String {
+  public static func discovery_activity_sample_alert_follow_friend_name(friend_name: String) -> String {
     return localizedString(
       key: "discovery.activity_sample.alert.follow_friend_name",
       defaultValue: "Follow %{friend_name}?",
@@ -7233,7 +7791,7 @@ catch your eye?"
    - **fr**: "Toute la catégorie %{scope}"
    - **en**: "All of %{scope}"
   */
-  public static func discovery_all_of_scope(scope scope: String) -> String {
+  public static func discovery_all_of_scope(scope: String) -> String {
     return localizedString(
       key: "discovery.all_of_scope",
       defaultValue: "All of %{scope}",
@@ -7297,7 +7855,7 @@ catch your eye?"
    - **fr**: "%{blurb}%{space}<u>Plus</u>%{space}"
    - **en**: "%{blurb}%{space}<u>Read%{space}more</u>%{space}"
   */
-  public static func discovery_baseball_card_blurb_read_more(blurb blurb: String, space: String) -> String {
+  public static func discovery_baseball_card_blurb_read_more(blurb: String, space: String) -> String {
     return localizedString(
       key: "discovery.baseball_card.blurb_read_more",
       defaultValue: "%{blurb}%{space}<u>Read%{space}more</u>%{space}",
@@ -7409,7 +7967,7 @@ catch your eye?"
    - **fr**: "Un projet sélectionné de la catégorie %{category_name}"
    - **en**: "Featured in %{category_name}"
   */
-  public static func discovery_baseball_card_metadata_featured_project(category_name category_name: String) -> String {
+  public static func discovery_baseball_card_metadata_featured_project(category_name: String) -> String {
     return localizedString(
       key: "discovery.baseball_card.metadata.featured_project",
       defaultValue: "Featured in %{category_name}",
@@ -7473,7 +8031,7 @@ catch your eye?"
    - **fr**: "En savoir%{space}plus%{space}"
    - **en**: "Read%{space}more%{space}"
   */
-  public static func discovery_baseball_card_read_more(space space: String) -> String {
+  public static func discovery_baseball_card_read_more(space: String) -> String {
     return localizedString(
       key: "discovery.baseball_card.read_more",
       defaultValue: "Read%{space}more%{space}",
@@ -7489,7 +8047,7 @@ catch your eye?"
    - **fr**: "%{friend_name}, %{second_friend_name} et %{remaining_count} autres personnes sont contributeurs."
    - **en**: "%{friend_name}, %{second_friend_name}, and %{remaining_count} more are backers."
   */
-  public static func discovery_baseball_card_social_friends_are_backers(friend_name friend_name: String, second_friend_name: String, remaining_count: Int) -> String {
+  public static func discovery_baseball_card_social_friends_are_backers(friend_name: String, second_friend_name: String, remaining_count: Int) -> String {
     return localizedString(
       key: "discovery.baseball_card.social.friends_are_backers",
       defaultValue: "%{friend_name}, %{second_friend_name}, and %{remaining_count} more are backers.",
@@ -7505,7 +8063,7 @@ catch your eye?"
    - **fr**: "Pour le moment, %{backers_count} contributeurs, projet financé à %{percent_funded}, plus que %{time_left}"
    - **en**: "%{backers_count} backers so far, %{percent_funded} funded, %{time_left} to go"
   */
-  public static func discovery_baseball_card_stats_accessibility_live_stat_value(backers_count backers_count: Int, percent_funded: String, time_left: String) -> String {
+  public static func discovery_baseball_card_stats_accessibility_live_stat_value(backers_count: Int, percent_funded: String, time_left: String) -> String {
     return localizedString(
       key: "discovery.baseball_card.stats.accessibility.live_stat_value",
       defaultValue: "%{backers_count} backers so far, %{percent_funded} funded, %{time_left} to go",
@@ -7521,7 +8079,7 @@ catch your eye?"
    - **fr**: "%{backers_count} contributeurs, projet financé à %{percent_funded}, plus que %{time_left}"
    - **en**: "%{backers_count} backers total, %{percent_funded} funded, %{time_left} to go"
   */
-  public static func discovery_baseball_card_stats_accessibility_non_live_stat_value(backers_count backers_count: Int, percent_funded: String, time_left: String) -> String {
+  public static func discovery_baseball_card_stats_accessibility_non_live_stat_value(backers_count: Int, percent_funded: String, time_left: String) -> String {
     return localizedString(
       key: "discovery.baseball_card.stats.accessibility.non_live_stat_value",
       defaultValue: "%{backers_count} backers total, %{percent_funded} funded, %{time_left} to go",
@@ -7553,7 +8111,7 @@ catch your eye?"
    - **fr**: "Conversion de %{pledged} engagés pour un objectif de %{goal}"
    - **en**: "Converted from %{pledged} pledged of %{goal} goal."
   */
-  public static func discovery_baseball_card_stats_convert_from_pledged_of_goal(pledged pledged: String, goal: String) -> String {
+  public static func discovery_baseball_card_stats_convert_from_pledged_of_goal(pledged: String, goal: String) -> String {
     return localizedString(
       key: "discovery.baseball_card.stats.convert_from_pledged_of_goal",
       defaultValue: "Converted from %{pledged} pledged of %{goal} goal.",
@@ -7585,7 +8143,7 @@ catch your eye?"
    - **fr**: "sur %{goal}"
    - **en**: "pledged of %{goal}"
   */
-  public static func discovery_baseball_card_stats_pledged_of_goal(goal goal: String) -> String {
+  public static func discovery_baseball_card_stats_pledged_of_goal(goal: String) -> String {
     return localizedString(
       key: "discovery.baseball_card.stats.pledged_of_goal",
       defaultValue: "pledged of %{goal}",
@@ -7601,7 +8159,7 @@ catch your eye?"
    - **fr**: "sur %{goal}"
    - **en**: "of %{goal}"
   */
-  public static func discovery_baseball_card_stats_pledged_of_goal_short(goal goal: String) -> String {
+  public static func discovery_baseball_card_stats_pledged_of_goal_short(goal: String) -> String {
     return localizedString(
       key: "discovery.baseball_card.stats.pledged_of_goal_short",
       defaultValue: "of %{goal}",
@@ -7633,7 +8191,7 @@ catch your eye?"
    - **fr**: "Campagne annulée le %{date}"
    - **en**: "Funding canceled %{date}"
   */
-  public static func discovery_baseball_card_status_banner_canceled_date(date date: String) -> String {
+  public static func discovery_baseball_card_status_banner_canceled_date(date: String) -> String {
     return localizedString(
       key: "discovery.baseball_card.status_banner.canceled_date",
       defaultValue: "Funding canceled %{date}",
@@ -7649,7 +8207,7 @@ catch your eye?"
    - **fr**: "Non financé %{date}"
    - **en**: "Funding unsuccessful %{date}"
   */
-  public static func discovery_baseball_card_status_banner_funding_unsuccessful_date(date date: String) -> String {
+  public static func discovery_baseball_card_status_banner_funding_unsuccessful_date(date: String) -> String {
     return localizedString(
       key: "discovery.baseball_card.status_banner.funding_unsuccessful_date",
       defaultValue: "Funding unsuccessful %{date}",
@@ -7681,7 +8239,7 @@ catch your eye?"
    - **fr**: "Intégralement financé le %{date}"
    - **en**: "Successfully funded %{date}"
   */
-  public static func discovery_baseball_card_status_banner_successful_date(date date: String) -> String {
+  public static func discovery_baseball_card_status_banner_successful_date(date: String) -> String {
     return localizedString(
       key: "discovery.baseball_card.status_banner.successful_date",
       defaultValue: "Successfully funded %{date}",
@@ -7697,7 +8255,7 @@ catch your eye?"
    - **fr**: "Financement suspendu %{date}"
    - **en**: "Funding suspended %{date}"
   */
-  public static func discovery_baseball_card_status_banner_suspended(date date: String) -> String {
+  public static func discovery_baseball_card_status_banner_suspended(date: String) -> String {
     return localizedString(
       key: "discovery.baseball_card.status_banner.suspended",
       defaultValue: "Funding suspended %{date}",
@@ -7713,7 +8271,7 @@ catch your eye?"
    - **fr**: "Campagne suspendue le %{date}"
    - **en**: "Funding suspended %{date}"
   */
-  public static func discovery_baseball_card_status_banner_suspended_date(date date: String) -> String {
+  public static func discovery_baseball_card_status_banner_suspended_date(date: String) -> String {
     return localizedString(
       key: "discovery.baseball_card.status_banner.suspended_date",
       defaultValue: "Funding suspended %{date}",
@@ -7729,7 +8287,7 @@ catch your eye?"
    - **fr**: "Plus que %{time_left}"
    - **en**: "%{time_left} to go"
   */
-  public static func discovery_baseball_card_time_left_to_go(time_left time_left: String) -> String {
+  public static func discovery_baseball_card_time_left_to_go(time_left: String) -> String {
     return localizedString(
       key: "discovery.baseball_card.time_left_to_go",
       defaultValue: "%{time_left} to go",
@@ -7948,7 +8506,7 @@ catch your eye?"
   /**
    "Yes! You've saved this as one of your favorite categories."
 
-   - **es**: "¡Perfecto - esta categoría se encuentra ahora entre tus favoritas! Muévelas en el órden que más te gusten, así tendrás un acceso más rápido a ellas."
+   - **es**: "¡Perfecto - esta categoría se encuentra ahora entre tus favoritas! Muévelas en el orden que más te gusten, así tendrás un acceso más rápido a ellas."
    - **de**: "Klasse! Diese Kategorie gehört nun zu deinen Favoriten! Du kannst sie nach oben oder unten ziehen, um die Reihenfolge deiner liebsten Kategorien festzulegen und so schneller auf sie zugreifen zu können."
    - **fr**: "Super ! Vous avez ajouté cette catégorie à vos favoris. Faites-les défiler pour accéder plus facilement à celles que vous préférez."
    - **en**: "Yes! You've saved this as one of your favorite categories."
@@ -8033,7 +8591,7 @@ catch your eye?"
    - **fr**: "Toute la catégorie %{category_name}"
    - **en**: "All of %{category_name}"
   */
-  public static func discovery_filters_all_of_category(category_name category_name: String) -> String {
+  public static func discovery_filters_all_of_category(category_name: String) -> String {
     return localizedString(
       key: "discovery.filters.all_of_category",
       defaultValue: "All of %{category_name}",
@@ -8513,7 +9071,7 @@ catch your eye?"
    - **fr**: "%{creator_name} a besoin de quelques informations pour vous envoyer votre récompense pour le projet %{project_name}."
    - **en**: "%{creator_name} needs some info to deliver your reward for %{project_name}."
   */
-  public static func discovery_survey_creator_needs_some_info_to_deliver_reward_for_project(creator_name creator_name: String, project_name: String) -> String {
+  public static func discovery_survey_creator_needs_some_info_to_deliver_reward_for_project(creator_name: String, project_name: String) -> String {
     return localizedString(
       key: "discovery.survey.creator_needs_some_info_to_deliver_reward_for_project",
       defaultValue: "%{creator_name} needs some info to deliver your reward for %{project_name}.",
@@ -8801,7 +9359,7 @@ catch your eye?"
    - **fr**: "Nous avons envoyé un e-mail à %{email} contenant les instructions nécessaires pour réinitialiser votre mot de passe."
    - **en**: "We’ve sent an email to %{email} with instructions to reset your password."
   */
-  public static func forgot_password_we_sent_an_email_to_email_address_with_instructions_to_reset_your_password(email email: String) -> String {
+  public static func forgot_password_we_sent_an_email_to_email_address_with_instructions_to_reset_your_password(email: String) -> String {
     return localizedString(
       key: "forgot_password.we_sent_an_email_to_email_address_with_instructions_to_reset_your_password",
       defaultValue: "We’ve sent an email to %{email} with instructions to reset your password.",
@@ -8849,7 +9407,7 @@ catch your eye?"
    - **fr**: "%{backer_count} contributeurs"
    - **en**: "%{backer_count} backers"
   */
-  public static func general_backer_count_backers(backer_count backer_count: Int) -> String {
+  public static func general_backer_count_backers(backer_count: Int) -> String {
     return localizedString(
       key: "general.backer_count_backers",
       defaultValue: "%{backer_count} backers",
@@ -9212,7 +9770,7 @@ catch your eye?"
   /**
    "You seem to be using a really old version of the app. Please upgrade from the App Store to continue using."
 
-   - **es**: "Parece que estás usando una versión muy antigua de esta aplicación. Por favor descarga la última versión de la App Store para continuar usándola."
+   - **es**: "Parece que estás usando una versión muy antigua de esta aplicación. Por favor descarga la última versión en la App Store para continuar usándola."
    - **de**: "Du scheinst eine sehr alte Version der App zu benutzen. Um fortzufahren, installiere bitte die neueste Version aus dem App Store."
    - **fr**: "On dirait que vous utilisez une ancienne version de l'application. Veuillez la mettre à jour depuis l'App Store pour continuer à l'utiliser."
    - **en**: "You seem to be using a really old version of the app. Please upgrade from the App Store to continue using."
@@ -10395,7 +10953,7 @@ This is commonly fixed by going to iOS Settings > Facebook and toggling access f
    - **fr**: "envoyé le %{sent_date}"
    - **en**: "sent %{sent_date}"
   */
-  public static func messages_sent_date(sent_date sent_date: String) -> String {
+  public static func messages_sent_date(sent_date: String) -> String {
     return localizedString(
       key: "messages.sent_date",
       defaultValue: "sent %{sent_date}",
@@ -10411,7 +10969,7 @@ This is commonly fixed by going to iOS Settings > Facebook and toggling access f
    - **fr**: "Financé à %{percentage}"
    - **en**: "%{percentage} funded"
   */
-  public static func percentage_funded(percentage percentage: String) -> String {
+  public static func percentage_funded(percentage: String) -> String {
     return localizedString(
       key: "percentage_funded",
       defaultValue: "%{percentage} funded",
@@ -10427,7 +10985,7 @@ This is commonly fixed by going to iOS Settings > Facebook and toggling access f
    - **fr**: "+ %{shipping_cost}"
    - **en**: "+%{shipping_cost}"
   */
-  public static func plus_shipping_cost(shipping_cost shipping_cost: String) -> String {
+  public static func plus_shipping_cost(shipping_cost: String) -> String {
     return localizedString(
       key: "plus_shipping_cost",
       defaultValue: "+%{shipping_cost}",
@@ -10475,7 +11033,7 @@ This is commonly fixed by going to iOS Settings > Facebook and toggling access f
    - **fr**: "%{category_count} catégories soutenues"
    - **en**: "%{category_count} categories backed"
   */
-  public static func profile_category_count_categories_backed(category_count category_count: Int) -> String {
+  public static func profile_category_count_categories_backed(category_count: Int) -> String {
     return localizedString(
       key: "profile.category_count_categories_backed",
       defaultValue: "%{category_count} categories backed",
@@ -10491,7 +11049,7 @@ This is commonly fixed by going to iOS Settings > Facebook and toggling access f
    - **fr**: "%{category_name} (%{backed_projects_count})"
    - **en**: "%{category_name} (%{backed_projects_count})"
   */
-  public static func profile_pie_slice_category_name_backed_projects_count(category_name category_name: String, backed_projects_count: String) -> String {
+  public static func profile_pie_slice_category_name_backed_projects_count(category_name: String, backed_projects_count: String) -> String {
     return localizedString(
       key: "profile.pie.slice.category_name_backed_projects_count",
       defaultValue: "%{category_name} (%{backed_projects_count})",
@@ -10507,7 +11065,7 @@ This is commonly fixed by going to iOS Settings > Facebook and toggling access f
    - **fr**: "%{project_count} projets soutenus"
    - **en**: "%{project_count} projects backed"
   */
-  public static func profile_project_count_projects_backed(project_count project_count: Int) -> String {
+  public static func profile_project_count_projects_backed(project_count: Int) -> String {
     return localizedString(
       key: "profile.project_count_projects_backed",
       defaultValue: "%{project_count} projects backed",
@@ -10523,7 +11081,7 @@ This is commonly fixed by going to iOS Settings > Facebook and toggling access f
    - **fr**: "%{project_count} PROJETS SOUTENUS"
    - **en**: "BACKED %{project_count} PROJECTS"
   */
-  public static func profile_projects_backed_project_count_projects(project_count project_count: Int) -> String {
+  public static func profile_projects_backed_project_count_projects(project_count: Int) -> String {
     return localizedString(
       key: "profile.projects.backed_project_count_projects",
       defaultValue: "BACKED %{project_count} PROJECTS",
@@ -10702,7 +11260,7 @@ Let's change that!"
    - **fr**: "Plus que %{time_left}"
    - **en**: "%{time_left} to go"
   */
-  public static func profile_projects_time_left_to_go(time_left time_left: String) -> String {
+  public static func profile_projects_time_left_to_go(time_left: String) -> String {
     return localizedString(
       key: "profile.projects.time_left_to_go",
       defaultValue: "%{time_left} to go",
@@ -11182,7 +11740,7 @@ Let's change that!"
    - **fr**: "Nous vous avons envoyé un e-mail de confirmation à l'adresse associée à votre compte ! Veuillez ouvrir votre boîte de réception et confirmer votre abonnement à %{newsletter}."
    - **en**: "We've sent a confirmation email to the address associated with your account! Please check your email in order to confirm that you'd like to subscribe to %{newsletter}."
   */
-  public static func profile_settings_newsletter_opt_in_message(newsletter newsletter: String) -> String {
+  public static func profile_settings_newsletter_opt_in_message(newsletter: String) -> String {
     return localizedString(
       key: "profile.settings.newsletter.opt_in.message",
       defaultValue: "We've sent a confirmation email to the address associated with your account! Please check your email in order to confirm that you'd like to subscribe to %{newsletter}.",
@@ -11486,7 +12044,7 @@ Thank you for your support!"
    - **fr**: "Version %{version_number}"
    - **en**: "Version %{version_number}"
   */
-  public static func profile_settings_version_number(version_number version_number: String) -> String {
+  public static func profile_settings_version_number(version_number: String) -> String {
     return localizedString(
       key: "profile.settings.version_number",
       defaultValue: "Version %{version_number}",
@@ -11662,7 +12220,7 @@ Thank you for your support!"
    - **fr**: "Votre moyen de paiement ne sera pas débité tout de suite. Si le projet est intégralement financé, votre carte sera débitée de %{charge_amount} en fin de campagne."
    - **en**: "Your payment method will not be charged at this time. If the project is successfully funded, your card will be charged %{charge_amount} when the project ends."
   */
-  public static func project_checkout_android_pay_pledge_disclaimer(charge_amount charge_amount: String) -> String {
+  public static func project_checkout_android_pay_pledge_disclaimer(charge_amount: String) -> String {
     return localizedString(
       key: "project.checkout.android_pay.pledge_disclaimer",
       defaultValue: "Your payment method will not be charged at this time. If the project is successfully funded, your card will be charged %{charge_amount} when the project ends.",
@@ -11678,7 +12236,7 @@ Thank you for your support!"
    - **fr**: "Votre moyen de paiement ne sera pas débité tout de suite. Si le projet est intégralement financé, votre carte sera débitée de %{charge_amount} en fin de campagne."
    - **en**: "Your payment method will not be charged at this time. If the project is successfully funded, your card will be charged %{charge_amount} when the project ends."
   */
-  public static func project_checkout_android_pay_pledged_disclaimer(charge_amount charge_amount: String) -> String {
+  public static func project_checkout_android_pay_pledged_disclaimer(charge_amount: String) -> String {
     return localizedString(
       key: "project.checkout.android_pay.pledged_disclaimer",
       defaultValue: "Your payment method will not be charged at this time. If the project is successfully funded, your card will be charged %{charge_amount} when the project ends.",
@@ -11785,7 +12343,7 @@ Thank you for your support!"
   /**
    "How embarrassing. This appears to be taking longer than usual. We will email you once your pledge is finalized."
 
-   - **es**: "¡Que pena! Parece que está tardando más de lo normal. Te enviaremos un correo electrónico una vez haya finalizado tu contribución."
+   - **es**: "¡Qué pena! Parece que está tardando más de lo normal. Te enviaremos un correo electrónico una vez que haya finalizado tu contribución."
    - **de**: "Wie peinlich! Dieser Vorgang scheint länger zu dauern als üblich. Wir schicken dir eine E-Mail, sobald dein Finanzierungsbeitrag bearbeitet ist."
    - **fr**: "Nous sommes désolés. On dirait que cette opération prend plus de temps que d'habitude. Nous vous enverrons un e-mail une fois votre engagement finalisé."
    - **en**: "How embarrassing. This appears to be taking longer than usual. We will email you once your pledge is finalized."
@@ -11822,7 +12380,7 @@ Thank you for your support!"
    - **fr**: "Nous sommes en train de finaliser votre engagement pour le projet %{project_name}. Merci de patienter quelques instants !"
    - **en**: "We’re finalizing your pledge to %{project_name}. It’ll be just a moment!"
   */
-  public static func project_checkout_finalizing_we_are_finalizing_your_pledge_to_project(project_name project_name: String) -> String {
+  public static func project_checkout_finalizing_we_are_finalizing_your_pledge_to_project(project_name: String) -> String {
     return localizedString(
       key: "project.checkout.finalizing.we_are_finalizing_your_pledge_to_project",
       defaultValue: "We’re finalizing your pledge to %{project_name}. It’ll be just a moment!",
@@ -12072,7 +12630,7 @@ Thank you for your support!"
 
 %{project_url}"
   */
-  public static func project_checkout_share_link_the_project_url_has_been_copied_to_your_clipboard(project_url project_url: String) -> String {
+  public static func project_checkout_share_link_the_project_url_has_been_copied_to_your_clipboard(project_url: String) -> String {
     return localizedString(
       key: "project.checkout.share.link.the_project_url_has_been_copied_to_your_clipboard",
       defaultValue: "The project’s URL has been copied to your clipboard:\n\n%{project_url}",
@@ -12097,7 +12655,7 @@ Thank you for your support!"
 
 %{update_url}"
   */
-  public static func project_checkout_share_link_the_update_url_has_been_copied_to_your_clipboard(update_url update_url: String) -> String {
+  public static func project_checkout_share_link_the_update_url_has_been_copied_to_your_clipboard(update_url: String) -> String {
     return localizedString(
       key: "project.checkout.share.link.the_update_url_has_been_copied_to_your_clipboard",
       defaultValue: "The update’s URL has been copied to your clipboard:\n\n%{update_url}",
@@ -12113,7 +12671,7 @@ Thank you for your support!"
    - **fr**: "%{project_or_update_title}, via Kickstarter"
    - **en**: "%{project_or_update_title}, via Kickstarter"
   */
-  public static func project_checkout_share_title_via_kickstarter(project_or_update_title project_or_update_title: String) -> String {
+  public static func project_checkout_share_title_via_kickstarter(project_or_update_title: String) -> String {
     return localizedString(
       key: "project.checkout.share.title_via_kickstarter",
       defaultValue: "%{project_or_update_title}, via Kickstarter",
@@ -12129,7 +12687,7 @@ Thank you for your support!"
    - **fr**: "Je viens de soutenir le projet %{project_name} sur @Kickstarter"
    - **en**: "I just backed %{project_name} on @Kickstarter"
   */
-  public static func project_checkout_share_twitter_I_just_backed_project_on_kickstarter(project_name project_name: String) -> String {
+  public static func project_checkout_share_twitter_I_just_backed_project_on_kickstarter(project_name: String) -> String {
     return localizedString(
       key: "project.checkout.share.twitter.I_just_backed_project_on_kickstarter",
       defaultValue: "I just backed %{project_name} on @Kickstarter",
@@ -12145,7 +12703,7 @@ Thank you for your support!"
    - **fr**: "%{project_or_update_title}, via Kickstarter"
    - **en**: "%{project_or_update_title}, via Kickstarter"
   */
-  public static func project_checkout_share_twitter_via_kickstarter(project_or_update_title project_or_update_title: String) -> String {
+  public static func project_checkout_share_twitter_via_kickstarter(project_or_update_title: String) -> String {
     return localizedString(
       key: "project.checkout.share.twitter_via_kickstarter",
       defaultValue: "%{project_or_update_title}, via Kickstarter",
@@ -12161,7 +12719,7 @@ Thank you for your support!"
    - **fr**: "Vous venez de soutenir le projet %{project_name}. Partagez-le avec vos amis pour l'aider à avancer !"
    - **en**: "You just backed %{project_name}. Share this project with friends to help it along!"
   */
-  public static func project_checkout_share_you_just_backed_project_share_this_project(project_name project_name: String) -> String {
+  public static func project_checkout_share_you_just_backed_project_share_this_project(project_name: String) -> String {
     return localizedString(
       key: "project.checkout.share.you_just_backed_project_share_this_project",
       defaultValue: "You just backed %{project_name}. Share this project with friends to help it along!",
@@ -12177,7 +12735,7 @@ Thank you for your support!"
    - **fr**: "Vous venez de soutenir le projet <b>%{project_name}</b>. Partagez-le avec vos amis pour l'aider à avancer !"
    - **en**: "You just backed <b>%{project_name}</b>. Share this project with friends to help it along!"
   */
-  public static func project_checkout_share_you_just_backed_project_share_this_project_html(project_name project_name: String) -> String {
+  public static func project_checkout_share_you_just_backed_project_share_this_project_html(project_name: String) -> String {
     return localizedString(
       key: "project.checkout.share.you_just_backed_project_share_this_project_html",
       defaultValue: "You just backed <b>%{project_name}</b>. Share this project with friends to help it along!",
@@ -12369,7 +12927,7 @@ Thank you for your support!"
    - **fr**: "par %{creator_name}"
    - **en**: "by %{creator_name}"
   */
-  public static func project_creator_by_creator(creator_name creator_name: String) -> String {
+  public static func project_creator_by_creator(creator_name: String) -> String {
     return localizedString(
       key: "project.creator.by_creator",
       defaultValue: "by %{creator_name}",
@@ -12385,7 +12943,7 @@ Thank you for your support!"
    - **fr**: "par %{creator_name}"
    - **en**: "by <u>%{creator_name}</u>"
   */
-  public static func project_creator_by_creator_html(creator_name creator_name: String) -> String {
+  public static func project_creator_by_creator_html(creator_name: String) -> String {
     return localizedString(
       key: "project.creator.by_creator_html",
       defaultValue: "by <u>%{creator_name}</u>",
@@ -12417,7 +12975,7 @@ Thank you for your support!"
    - **fr**: "Ce projet ne sera financé que si au moins %{goal_currency} sont engagés avant le %{deadline}."
    - **en**: "This project will only be funded if at least %{goal_currency} is pledged by %{deadline}."
   */
-  public static func project_disclaimer_goal_not_reached(goal_currency goal_currency: String, deadline: String) -> String {
+  public static func project_disclaimer_goal_not_reached(goal_currency: String, deadline: String) -> String {
     return localizedString(
       key: "project.disclaimer.goal_not_reached",
       defaultValue: "This project will only be funded if at least %{goal_currency} is pledged by %{deadline}.",
@@ -12428,12 +12986,12 @@ Thank you for your support!"
   /**
    "This project will be funded on %{deadline}."
 
-   - **es**: "Este proyecto será financiado el  %{deadline}."
+   - **es**: "Este proyecto será financiado el %{deadline}."
    - **de**: "Dieses Projekt wird am %{deadline} finanziert."
    - **fr**: "Ce projet sera financé le %{deadline}."
    - **en**: "This project will be funded on %{deadline}."
   */
-  public static func project_disclaimer_goal_reached(deadline deadline: String) -> String {
+  public static func project_disclaimer_goal_reached(deadline: String) -> String {
     return localizedString(
       key: "project.disclaimer.goal_reached",
       defaultValue: "This project will be funded on %{deadline}.",
@@ -12561,7 +13119,7 @@ Thank you for your support!"
    - **fr**: "%{project_title}, via @Kickstarter"
    - **en**: "%{project_title}, via @Kickstarter"
   */
-  public static func project_share_twitter_message(project_title project_title: String) -> String {
+  public static func project_share_twitter_message(project_title: String) -> String {
     return localizedString(
       key: "project.share.twitter.message",
       defaultValue: "%{project_title}, via @Kickstarter",
@@ -12577,7 +13135,7 @@ Thank you for your support!"
    - **fr**: "%{friend_name} et %{second_friend_name} sont contributeurs."
    - **en**: "%{friend_name} and %{second_friend_name} are backers."
   */
-  public static func project_social_friend_and_friend_are_backers(friend_name friend_name: String, second_friend_name: String) -> String {
+  public static func project_social_friend_and_friend_are_backers(friend_name: String, second_friend_name: String) -> String {
     return localizedString(
       key: "project.social.friend_and_friend_are_backers",
       defaultValue: "%{friend_name} and %{second_friend_name} are backers.",
@@ -12593,7 +13151,7 @@ Thank you for your support!"
    - **fr**: "%{friend_name} est contributeur."
    - **en**: "%{friend_name} is a backer."
   */
-  public static func project_social_friend_is_backer(friend_name friend_name: String) -> String {
+  public static func project_social_friend_is_backer(friend_name: String) -> String {
     return localizedString(
       key: "project.social.friend_is_backer",
       defaultValue: "%{friend_name} is a backer.",
@@ -12609,7 +13167,7 @@ Thank you for your support!"
    - **fr**: "%{backer_count} autres personnes"
    - **en**: "%{backer_count} more"
   */
-  public static func project_social_friends_are_backers_and_more_bold(backer_count backer_count: Int) -> String {
+  public static func project_social_friends_are_backers_and_more_bold(backer_count: Int) -> String {
     return localizedString(
       key: "project.social.friends_are_backers_and_more_bold",
       defaultValue: "%{backer_count} more",
@@ -12625,7 +13183,7 @@ Thank you for your support!"
    - **fr**: "%{friends} et %{backer_count} autres personnes sont contributeurs."
    - **en**: "%{friends} and %{backer_count} more are backers."
   */
-  public static func project_social_friends_are_backers_and_more_count(friends friends: String, backer_count: Int) -> String {
+  public static func project_social_friends_are_backers_and_more_count(friends: String, backer_count: Int) -> String {
     return localizedString(
       key: "project.social.friends_are_backers_and_more_count",
       defaultValue: "%{friends} and %{backer_count} more are backers.",
@@ -12785,7 +13343,7 @@ Thank you for your support!"
    - **fr**: "L'objectif de financement de ce projet n'a pas été atteint avant le %{deadline}."
    - **en**: "This project’s funding goal was not reached %{deadline}."
   */
-  public static func project_status_project_funding_goal_not_reached(deadline deadline: String) -> String {
+  public static func project_status_project_funding_goal_not_reached(deadline: String) -> String {
     return localizedString(
       key: "project.status.project_funding_goal_not_reached",
       defaultValue: "This project’s funding goal was not reached %{deadline}.",
@@ -12817,7 +13375,7 @@ Thank you for your support!"
    - **fr**: "Ce projet a été financé avec succès le %{deadline}."
    - **en**: "This project was successfully funded on %{deadline}."
   */
-  public static func project_status_project_was_successfully_funded_on_deadline(deadline deadline: String) -> String {
+  public static func project_status_project_was_successfully_funded_on_deadline(deadline: String) -> String {
     return localizedString(
       key: "project.status.project_was_successfully_funded_on_deadline",
       defaultValue: "This project was successfully funded on %{deadline}.",
@@ -13121,7 +13679,7 @@ Thank you for your support!"
    - **fr**: "%{project_count} projets"
    - **en**: "%{project_count} projects"
   */
-  public static func project_count_projects(project_count project_count: Int) -> String {
+  public static func project_count_projects(project_count: Int) -> String {
     return localizedString(
       key: "project_count_projects",
       defaultValue: "%{project_count} projects",
@@ -13185,7 +13743,7 @@ Thank you for your support!"
    - **fr**: "%{backer_count} contributeurs"
    - **en**: "%{backer_count} backers"
   */
-  public static func rewards_info_backer_count_backers(backer_count backer_count: Int) -> String {
+  public static func rewards_info_backer_count_backers(backer_count: Int) -> String {
     return localizedString(
       key: "rewards.info.backer_count_backers",
       defaultValue: "%{backer_count} backers",
@@ -13233,7 +13791,7 @@ Thank you for your support!"
    - **fr**: "Stock limité (il en reste %{rewards_remaining} sur %{reward_limit})"
    - **en**: "Limited (%{rewards_remaining} left of %{reward_limit})"
   */
-  public static func rewards_info_limited_rewards_remaining_left_of_reward_limit(rewards_remaining rewards_remaining: String, reward_limit: String) -> String {
+  public static func rewards_info_limited_rewards_remaining_left_of_reward_limit(rewards_remaining: String, reward_limit: String) -> String {
     return localizedString(
       key: "rewards.info.limited_rewards_remaining_left_of_reward_limit",
       defaultValue: "Limited (%{rewards_remaining} left of %{reward_limit})",
@@ -13297,7 +13855,7 @@ Thank you for your support!"
    - **fr**: "Plus que %{time}"
    - **en**: "%{time} left"
   */
-  public static func rewards_info_time_left(time time: String) -> String {
+  public static func rewards_info_time_left(time: String) -> String {
     return localizedString(
       key: "rewards.info.time_left",
       defaultValue: "%{time} left",
@@ -13361,7 +13919,7 @@ Thank you for your support!"
    - **fr**: "Environ %{reward_amount} USD"
    - **en**: "About %{reward_amount} USD"
   */
-  public static func rewards_title_about_amount_usd(reward_amount reward_amount: String) -> String {
+  public static func rewards_title_about_amount_usd(reward_amount: String) -> String {
     return localizedString(
       key: "rewards.title.about_amount_usd",
       defaultValue: "About %{reward_amount} USD",
@@ -13377,7 +13935,7 @@ Thank you for your support!"
    - **fr**: "Contribution de %{reward_currency} ou plus"
    - **en**: "Pledge %{reward_currency} or more"
   */
-  public static func rewards_title_pledge_reward_currency_or_more(reward_currency reward_currency: String) -> String {
+  public static func rewards_title_pledge_reward_currency_or_more(reward_currency: String) -> String {
     return localizedString(
       key: "rewards.title.pledge_reward_currency_or_more",
       defaultValue: "Pledge %{reward_currency} or more",
@@ -13393,7 +13951,7 @@ Thank you for your support!"
    - **fr**: "par %{creator_name}"
    - **en**: "by %{creator_name}"
   */
-  public static func search_by_creator(creator_name creator_name: String) -> String {
+  public static func search_by_creator(creator_name: String) -> String {
     return localizedString(
       key: "search.by_creator",
       defaultValue: "by %{creator_name}",
@@ -13761,7 +14319,7 @@ Thank you for your support!"
    - **fr**: "Actu no. %{update_number}"
    - **en**: "Update #%{update_number}"
   */
-  public static func social_update_number(update_number update_number: String) -> String {
+  public static func social_update_number(update_number: String) -> String {
     return localizedString(
       key: "social.update_number",
       defaultValue: "Update #%{update_number}",
@@ -13777,7 +14335,7 @@ Thank you for your support!"
    - **fr**: "Actu no. %{update_number} : %{update_title}"
    - **en**: "Update #%{update_number}: %{update_title}"
   */
-  public static func social_update_sequence_and_title(update_number update_number: String, update_title: String) -> String {
+  public static func social_update_sequence_and_title(update_number: String, update_title: String) -> String {
     return localizedString(
       key: "social.update_sequence_and_title",
       defaultValue: "Update #%{update_number}: %{update_title}",
@@ -13841,7 +14399,7 @@ Thank you for your support!"
    - **fr**: "%{backed_count} projets soutenus"
    - **en**: "%{backed_count} backed"
   */
-  public static func social_following_friend_projects_count_backed(backed_count backed_count: Int) -> String {
+  public static func social_following_friend_projects_count_backed(backed_count: Int) -> String {
     return localizedString(
       key: "social_following.friend.projects_count_backed",
       defaultValue: "%{backed_count} backed",
@@ -13857,7 +14415,7 @@ Thank you for your support!"
    - **fr**: "%{created_count} projets créés"
    - **en**: "%{created_count} created"
   */
-  public static func social_following_friend_projects_count_created(created_count created_count: Int) -> String {
+  public static func social_following_friend_projects_count_created(created_count: Int) -> String {
     return localizedString(
       key: "social_following.friend.projects_count_created",
       defaultValue: "%{created_count} created",
@@ -14017,7 +14575,7 @@ Thank you for your support!"
    - **fr**: "Suivre ces %{remote_friends_count} amis"
    - **en**: "Follow all %{remote_friends_count} friends"
   */
-  public static func social_following_stats_button_follow_all_friends(remote_friends_count remote_friends_count: Int) -> String {
+  public static func social_following_stats_button_follow_all_friends(remote_friends_count: Int) -> String {
     return localizedString(
       key: "social_following.stats.button.follow_all_friends",
       defaultValue: "Follow all %{remote_friends_count} friends",
@@ -14618,7 +15176,7 @@ Thank you for your support!"
    - **fr**: "%{updates_count} actus"
    - **en**: "%{updates_count} updates"
   */
-  public static func updates_count_updates(updates_count updates_count: Int) -> String {
+  public static func updates_count_updates(updates_count: Int) -> String {
     return localizedString(
       key: "updates_count_updates",
       defaultValue: "%{updates_count} updates",

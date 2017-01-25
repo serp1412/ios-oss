@@ -1,22 +1,25 @@
 import KsApi
 import Prelude
-import ReactiveCocoa
+import ReactiveSwift
 import Result
 
 public protocol ProjectPamphletContentViewModelInputs {
-  func configureWith(project project: Project)
+  func configureWith(project: Project)
   func tappedComments()
+  func tapped(liveStream: Project.LiveStream)
   func tappedPledgeAnyAmount()
-  func tapped(rewardOrBacking rewardOrBacking: Either<Reward, Backing>)
+  func tapped(rewardOrBacking: Either<Reward, Backing>)
   func tappedUpdates()
-  func viewDidAppear(animated animated: Bool)
+  func viewDidAppear(animated: Bool)
   func viewDidLoad()
-  func viewWillAppear(animated animated: Bool)
+  func viewWillAppear(animated: Bool)
 }
 
 public protocol ProjectPamphletContentViewModelOutputs {
   var goToBacking: Signal<Project, NoError> { get }
   var goToComments: Signal<Project, NoError> { get }
+  var goToLiveStream: Signal<(Project, Project.LiveStream), NoError> { get }
+  var goToLiveStreamCountdown: Signal<(Project, Project.LiveStream), NoError> { get }
   var goToRewardPledge: Signal<(Project, Reward), NoError> { get }
   var goToUpdates: Signal<Project, NoError> { get }
   var loadMinimalProjectIntoDataSource: Signal<Project, NoError> { get }
@@ -32,93 +35,112 @@ public final class ProjectPamphletContentViewModel: ProjectPamphletContentViewMo
 ProjectPamphletContentViewModelInputs, ProjectPamphletContentViewModelOutputs {
 
   public init() {
-    let project = combineLatest(
-      self.projectProperty.signal.ignoreNil(),
+    let project = Signal.combineLatest(
+      self.projectProperty.signal.skipNil(),
       self.viewDidLoadProperty.signal
       )
       .map(first)
 
-    self.loadProjectIntoDataSource = combineLatest(
+    self.loadProjectIntoDataSource = Signal.combineLatest(
       project,
 
       Signal.merge(
         self.viewDidAppearAnimatedProperty.signal.filter(isTrue),
         self.viewWillAppearAnimatedProperty.signal.filter(isFalse)
         )
-        .take(1)
+        .take(first: 1)
       )
       .map(first)
 
     self.loadMinimalProjectIntoDataSource = project
       .takePairWhen(self.viewWillAppearAnimatedProperty.signal)
-      .take(1)
+      .take(first: 1)
       .filter(second)
       .map(first)
 
     let rewardOrBackingTapped = Signal.merge(
-      self.tappedRewardOrBackingProperty.signal.ignoreNil(),
+      self.tappedRewardOrBackingProperty.signal.skipNil(),
       self.tappedPledgeAnyAmountProperty.signal.mapConst(.left(Reward.noReward))
     )
 
     self.goToRewardPledge = project
       .takePairWhen(rewardOrBackingTapped)
       .map(goToRewardPledgeData(forProject:rewardOrBacking:))
-      .ignoreNil()
+      .skipNil()
 
     self.goToBacking = project
       .takePairWhen(rewardOrBackingTapped)
       .map(goToBackingData(forProject:rewardOrBacking:))
-      .ignoreNil()
+      .skipNil()
 
     self.goToComments = project
       .takeWhen(self.tappedCommentsProperty.signal)
 
     self.goToUpdates = project
       .takeWhen(self.tappedUpdatesProperty.signal)
+
+    self.goToLiveStream = project
+      .takePairWhen(
+        self.tappedLiveStreamProperty.signal.skipNil()
+          .filter(shouldGoToLiveStream(withLiveStream:))
+    )
+
+    self.goToLiveStreamCountdown = project
+      .takePairWhen(
+        self.tappedLiveStreamProperty.signal.skipNil()
+          .filter({ !shouldGoToLiveStream(withLiveStream:$0) })
+    )
   }
 
-  private let projectProperty = MutableProperty<Project?>(nil)
-  public func configureWith(project project: Project) {
+  fileprivate let projectProperty = MutableProperty<Project?>(nil)
+  public func configureWith(project: Project) {
     self.projectProperty.value = project
   }
 
-  private let tappedCommentsProperty = MutableProperty()
+  fileprivate let tappedCommentsProperty = MutableProperty()
   public func tappedComments() {
     self.tappedCommentsProperty.value = ()
   }
 
-  private let tappedPledgeAnyAmountProperty = MutableProperty()
+  private let tappedLiveStreamProperty = MutableProperty<Project.LiveStream?>(nil)
+  public func tapped(liveStream: Project.LiveStream) {
+    self.tappedLiveStreamProperty.value = liveStream
+  }
+
+  fileprivate let tappedPledgeAnyAmountProperty = MutableProperty()
   public func tappedPledgeAnyAmount() {
     self.tappedPledgeAnyAmountProperty.value = ()
   }
 
-  private let tappedRewardOrBackingProperty = MutableProperty<Either<Reward, Backing>?>(nil)
-  public func tapped(rewardOrBacking rewardOrBacking: Either<Reward, Backing>) {
+  fileprivate let tappedRewardOrBackingProperty = MutableProperty<Either<Reward, Backing>?>(nil)
+  public func tapped(rewardOrBacking: Either<Reward, Backing>) {
     self.tappedRewardOrBackingProperty.value = rewardOrBacking
   }
 
-  private let tappedUpdatesProperty = MutableProperty()
+  fileprivate let tappedUpdatesProperty = MutableProperty()
   public func tappedUpdates() {
     self.tappedUpdatesProperty.value = ()
   }
 
-  private let viewDidAppearAnimatedProperty = MutableProperty(false)
-  public func viewDidAppear(animated animated: Bool) {
+  fileprivate let viewDidAppearAnimatedProperty = MutableProperty(false)
+  public func viewDidAppear(animated: Bool) {
     self.viewDidAppearAnimatedProperty.value = animated
   }
 
-  private let viewDidLoadProperty = MutableProperty()
+  fileprivate let viewDidLoadProperty = MutableProperty()
   public func viewDidLoad() {
     self.viewDidLoadProperty.value = ()
   }
 
-  private let viewWillAppearAnimatedProperty = MutableProperty(false)
-  public func viewWillAppear(animated animated: Bool) {
+  fileprivate let viewWillAppearAnimatedProperty = MutableProperty(false)
+  public func viewWillAppear(animated: Bool) {
     self.viewWillAppearAnimatedProperty.value = animated
   }
 
   public let goToBacking: Signal<Project, NoError>
   public let goToComments: Signal<Project, NoError>
+  public let goToLiveStream: Signal<(Project, Project.LiveStream), NoError>
+  public let goToLiveStreamCountdown: Signal<(Project, Project.LiveStream), NoError>
   public let goToRewardPledge: Signal<(Project, Reward), NoError>
   public let goToUpdates: Signal<Project, NoError>
   public let loadMinimalProjectIntoDataSource: Signal<Project, NoError>
@@ -135,6 +157,11 @@ private func reward(forBacking backing: Backing, inProject project: Project) -> 
     ?? Reward.noReward
 }
 
+private func shouldGoToLiveStream(withLiveStream liveStream: Project.LiveStream) -> Bool {
+  return liveStream.isLiveNow || liveStream.startDate <
+    AppEnvironment.current.dateType.init().timeIntervalSince1970
+}
+
 private func goToRewardPledgeData(forProject project: Project, rewardOrBacking: Either<Reward, Backing>)
   -> (Project, Reward)? {
 
@@ -142,7 +169,7 @@ private func goToRewardPledgeData(forProject project: Project, rewardOrBacking: 
 
     switch rewardOrBacking {
     case let .left(reward):
-      guard reward.remaining != .Some(0) else { return nil }
+      guard reward.remaining != .some(0) else { return nil }
       return (project, reward)
 
     case let .right(backing):
